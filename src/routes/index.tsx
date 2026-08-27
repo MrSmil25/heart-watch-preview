@@ -24,7 +24,7 @@ import type { Totals } from "@/lib/scoring";
 
 const TITLE = "Baca Aku — Latihan Baca Maksud Tersembunyi Orang";
 const DESCRIPTION =
-  "Card game bahasa Indonesia berisi 30 situasi sosial. Tebak maksud tersembunyi, pilih respons terbaik, dan lihat skor Insight, Empathy, serta Social Damage kamu.";
+  "Card game bahasa Indonesia berisi 40 situasi sosial. Tebak maksud tersembunyi, pilih respons terbaik, dan lihat skor Insight, Empathy, serta Social Damage kamu.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -126,7 +126,7 @@ function Index() {
     setState(nextState);
 
 
-    if (!wasPlayed && newPlayed === 15 && !nextState.milestones.hiddenMessageSeen) {
+    if (!wasPlayed && newPlayed === 5 && !nextState.milestones.hiddenMessageSeen) {
       setShowHiddenMessage(true);
       return;
     }

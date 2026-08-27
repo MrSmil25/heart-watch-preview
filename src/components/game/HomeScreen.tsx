@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { categoryLabels } from "@/data/cards";
+import { categoryColor, categoryLabels } from "@/data/cards";
 import type { GameState } from "@/lib/gameState";
 import { Bunny } from "./Bunny";
 import { ProgressCircle } from "./ProgressCircle";
@@ -138,10 +138,10 @@ export function HomeScreen({
                 key={key}
                 type="button"
                 onClick={() => onPlayCategory(key)}
-                className="rounded-2xl border border-border bg-card px-3 py-3 text-left text-xs font-semibold text-foreground transition-transform hover:-translate-y-0.5"
+                className={`rounded-2xl border border-border px-3 py-3 text-left text-xs font-semibold transition-transform hover:-translate-y-0.5 ${categoryColor(key)}`}
               >
                 {label}
-                <span className="mt-1 block text-[0.68rem] font-normal text-muted-foreground">
+                <span className="mt-1 block text-[0.68rem] font-normal opacity-75">
                   {cat?.cardsPlayed ?? 0} kartu dimainkan
                 </span>
               </button>

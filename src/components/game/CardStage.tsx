@@ -53,6 +53,7 @@ export function CardStage({
             current={Math.min(played + 1, total)}
             total={total}
             category={categoryLabel(card.category)}
+            categoryKey={card.category}
           />
         </div>
         <div className="flex items-center gap-2">
