@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { categoryLabels } from "@/data/cards";
+import { categoryColor, categoryLabels } from "@/data/cards";
 import type { GameState } from "@/lib/gameState";
 import { Bunny } from "./Bunny";
 import { ProgressCircle } from "./ProgressCircle";
