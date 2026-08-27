@@ -17,6 +17,8 @@ type Props = {
   played: number;
   isLast: boolean;
   nickname: string;
+  hasMessage?: boolean;
+  onOpenMessage?: () => void;
   onNext: (delta: Totals, interpretationChoice: string, responseChoice: string) => void;
   onStop: () => void;
 };
