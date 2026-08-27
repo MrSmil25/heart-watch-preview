@@ -126,7 +126,7 @@ function Index() {
     setState(nextState);
 
 
-    if (!wasPlayed && newPlayed === 15 && !nextState.milestones.hiddenMessageSeen) {
+    if (!wasPlayed && newPlayed === 5 && !nextState.milestones.hiddenMessageSeen) {
       setShowHiddenMessage(true);
       return;
     }
