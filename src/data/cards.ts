@@ -48,3 +48,12 @@ const categoryColors: Record<string, string> = {
 export function categoryColor(key: string) {
   return categoryColors[key] ?? "bg-lavender/70 text-lavender-foreground";
 }
+
+const heavyCategories = new Set(["manipulation", "motive_detection", "hidden_agenda"]);
+
+/** Pill kategori di layar kartu: sage untuk ringan, apricot untuk berat */
+export function categoryPill(key: string) {
+  return heavyCategories.has(key)
+    ? "bg-apricot/80 text-apricot-foreground"
+    : "bg-sage/70 text-sage-foreground";
+}

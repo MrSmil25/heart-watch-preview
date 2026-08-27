@@ -43,6 +43,7 @@ export const Route = createFileRoute("/")({
 type Screen =
   | "splash"
   | "onboarding"
+  | "greeting"
   | "home"
   | "playing"
   | "result"
@@ -52,6 +53,7 @@ type Screen =
 function Index() {
   const [state, setState] = useState<GameState | null>(null);
   const [screen, setScreen] = useState<Screen>("splash");
+  const [pendingName, setPendingName] = useState("");
   const [currentCardId, setCurrentCardId] = useState<string | null>(null);
   const [showReset, setShowReset] = useState(false);
   const [showRename, setShowRename] = useState(false);
@@ -187,23 +189,11 @@ function Index() {
   const currentCard = currentCardId ? cards.find((c) => c.id === currentCardId) : null;
   const currentIndex = currentCard ? cards.indexOf(currentCard) : 0;
 
-  // Splash screen
+  // Splash screen — otomatis lanjut setelah 2.2 detik, atau tap untuk skip
   if (screen === "splash") {
     return (
       <main className="mx-auto flex min-h-screen w-full max-w-md flex-col justify-center px-4 py-8">
-        <SplashScreen />
-        <div className="mt-6 text-center">
-          <button
-            type="button"
-            onClick={() => setScreen("onboarding")}
-            className="w-full rounded-2xl bg-rose px-6 py-3.5 font-semibold text-rose-foreground soft-shadow transition-transform duration-200 hover:-translate-y-0.5"
-          >
-            Mulai
-          </button>
-          <p className="mt-4 text-xs text-muted-foreground">
-            Dibikin buat latihan peka, bukan buat nge-judge siapa-siapa.
-          </p>
-        </div>
+        <SplashScreen onDone={() => setScreen("onboarding")} />
       </main>
     );
   }
@@ -217,12 +207,22 @@ function Index() {
           onSubmit={(nickname) => {
             const fresh = createState(nickname);
             setState(fresh);
-            setScreen("home");
+            setPendingName(nickname);
+            setScreen("greeting");
+            window.setTimeout(() => setScreen("home"), 1500);
           }}
         />
-        <p className="mt-6 text-center text-xs text-muted-foreground">
-          Dibikin buat latihan peka, bukan buat nge-judge siapa-siapa.
-        </p>
+      </main>
+    );
+  }
+
+  // Sapaan setelah onboarding — tertahan 1.5 detik sebelum masuk home
+  if (screen === "greeting") {
+    return (
+      <main className="mx-auto flex min-h-screen w-full max-w-md flex-col items-center justify-center px-4 py-8 text-center">
+        <h1 className="animate-rise font-display text-4xl text-foreground">
+          Halo {pendingName} ✨
+        </h1>
       </main>
     );
   }
@@ -248,6 +248,7 @@ function Index() {
         {showHiddenMessage ? (
           <HiddenMessageOverlay
             nickname={state.nickname}
+            replay
             onContinue={() => setShowHiddenMessage(false)}
           />
         ) : null}
@@ -309,6 +310,7 @@ function Index() {
         {showHiddenMessage ? (
           <HiddenMessageOverlay
             nickname={state.nickname}
+            replay={messageReplay}
             onContinue={
               messageReplay
                 ? () => {
@@ -331,10 +333,8 @@ function Index() {
           state={state}
           totalCards={cards.length}
           onRestart={handleRestart}
+          onDone={() => setScreen("home")}
         />
-        <p className="mt-6 text-center text-xs text-muted-foreground">
-          Dibikin buat latihan peka, bukan buat nge-judge siapa-siapa.
-        </p>
       </main>
     );
   }
@@ -370,7 +370,7 @@ function Index() {
   // Fallback
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-md flex-col justify-center px-4 py-8">
-      <SplashScreen />
+      <SplashScreen onDone={() => setScreen("onboarding")} />
     </main>
   );
 }

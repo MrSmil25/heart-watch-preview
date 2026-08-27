@@ -1,10 +1,9 @@
 import { useMemo, useState } from "react";
 import type { Card } from "@/data/cards";
-import { categoryLabel } from "@/data/cards";
+import { categoryLabel, categoryPill } from "@/data/cards";
 import type { Totals } from "@/lib/scoring";
 import { LETTERS, shuffle } from "@/lib/shuffle";
 import { OptionButton } from "./OptionButton";
-import { ProgressBar } from "./ProgressBar";
 import { ProgressCircle } from "./ProgressCircle";
 import { ReasoningPanel } from "./ReasoningPanel";
 import { ScoreDeltaRow } from "./ScoreDeltaRow";
@@ -46,41 +45,42 @@ export function CardStage({
   const chosenResponse = card.responses.find((r) => r.id === pickedResponse);
 
   return (
-    <div className="surface-card space-y-6 px-5 py-6">
+    <div className="animate-card-in space-y-6 px-1 py-2">
+      {/* header ramping: X kiri, lingkaran mini + nomor kartu kanan */}
       <div className="flex items-center justify-between gap-3">
-        <div className="flex-1">
-          <ProgressBar
-            current={Math.min(played + 1, total)}
-            total={total}
-            category={categoryLabel(card.category)}
-            categoryKey={card.category}
-          />
-        </div>
-        <div className="flex items-center gap-2">
-          <ProgressCircle played={played} total={total} size={40} />
+        <button
+          type="button"
+          aria-label="Berhenti"
+          onClick={() => setShowStop(true)}
+          className="flex size-11 items-center justify-center rounded-full text-plum-soft/70 transition-colors hover:text-foreground"
+        >
+          <span className="text-base font-light">✕</span>
+        </button>
+        <div className="flex items-center gap-2.5">
           {hasMessage && onOpenMessage ? (
             <button
               type="button"
               aria-label="Buka pesan tersembunyi"
               onClick={onOpenMessage}
-              className="flex size-8 items-center justify-center rounded-full bg-peach text-peach-foreground"
+              className="flex size-9 items-center justify-center rounded-full bg-cream text-sm text-rose soft-shadow"
             >
               ✉
             </button>
           ) : null}
-          <button
-            type="button"
-            aria-label="Berhenti"
-            onClick={() => setShowStop(true)}
-            className="flex size-8 items-center justify-center rounded-full bg-cream text-muted-foreground transition-colors hover:text-foreground"
-          >
-            ✕
-          </button>
+          <span className="text-xs font-medium text-muted-foreground tabular-nums">
+            Kartu {Math.min(played + 1, total)}
+          </span>
+          <ProgressCircle played={played} total={total} size={40} />
         </div>
       </div>
 
-      <SituationBlock situation={card.situation} question={card.question} />
+      <span
+        className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${categoryPill(card.category)}`}
+      >
+        {categoryLabel(card.category)}
+      </span>
 
+      <SituationBlock situation={card.situation} question={card.question} />
 
       <div className="space-y-2.5">
         {shuffledInterpretations.map((option, i) => {
@@ -130,7 +130,7 @@ export function CardStage({
                   disabled={revealed}
                   selected={isPicked}
                   state={state}
-                  hint={revealed && option.isBest ? "✿ respons paling pas" : undefined}
+                  hint={revealed && option.isBest ? "respons paling pas" : undefined}
                   onClick={() => setPickedResponse(option.id)}
                 />
               );
@@ -140,7 +140,7 @@ export function CardStage({
       ) : null}
 
       {chosenResponse ? (
-        <div className="animate-rise space-y-3 rounded-2xl bg-cream px-4 py-4">
+        <div className="animate-rise space-y-3 rounded-2xl bg-cream px-5 py-4 soft-shadow">
           <ScoreDeltaRow
             insight={chosenResponse.insight}
             empathy={chosenResponse.empathy}
@@ -170,24 +170,26 @@ export function CardStage({
           }
           className="animate-rise w-full rounded-2xl bg-rose px-6 py-3.5 font-semibold text-rose-foreground soft-shadow transition-transform duration-200 hover:-translate-y-0.5"
         >
-          {isLast ? "Lihat hasilku" : "Kartu berikutnya"}
+          {isLast ? "Lihat hasilku" : "Lanjut yuk"}
         </button>
       ) : null}
 
       {showStop ? (
         <div className="fixed inset-0 z-50 flex items-end justify-center bg-foreground/25 px-4 pb-6 pt-20 backdrop-blur-sm sm:items-center sm:pb-0">
-          <div className="animate-rise surface-card relative w-full max-w-sm px-5 py-6 text-center">
+          <div className="animate-rise surface-card relative w-full max-w-sm px-6 py-6 text-center">
             <button
               type="button"
               aria-label="Tutup"
               onClick={() => setShowStop(false)}
-              className="absolute right-4 top-4 flex size-8 items-center justify-center rounded-full bg-cream text-muted-foreground transition-colors hover:text-foreground"
+              className="absolute right-4 top-4 flex size-9 items-center justify-center rounded-full bg-cream text-muted-foreground transition-colors hover:text-foreground"
             >
               ✕
             </button>
-            <h2 className="pr-8 text-xl text-foreground">Berhenti dulu, {nickname || "kamu"}?</h2>
+            <h2 className="pr-8 text-xl text-foreground">
+              Istirahat dulu, {nickname || "kamu"}?
+            </h2>
             <p className="mt-2 text-[0.92rem] leading-relaxed text-muted-foreground">
-              Progress kamu tersimpan kok.
+              Progress kamu aman kok.
             </p>
             <div className="mt-5 space-y-2.5">
               <button

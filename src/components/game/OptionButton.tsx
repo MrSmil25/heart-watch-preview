@@ -25,14 +25,14 @@ export function OptionButton({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "w-full rounded-2xl border px-4 py-3.5 text-left transition-all duration-200",
-        "bg-card border-border soft-shadow",
-        !disabled && "hover:-translate-y-0.5 hover:border-rose/50 active:translate-y-0",
+        "w-full rounded-2xl px-[18px] py-[18px] text-left transition-all duration-300",
+        "bg-cream soft-shadow",
+        !disabled && "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] active:bg-peach",
         disabled && "cursor-default",
-        state === "correct" && "border-sage bg-sage/40",
-        state === "best" && "border-sage/70 bg-sage/25",
-        state === "wrong" && "border-rose/60 bg-rose/12",
-        selected && state === "idle" && "border-lavender bg-lavender/40",
+        state === "correct" && "bg-sage/40 ring-2 ring-sage",
+        state === "best" && "bg-sage/25 ring-2 ring-sage/70",
+        state === "wrong" && "bg-apricot/40 ring-2 ring-apricot",
+        selected && state === "idle" && "bg-lavender/40 ring-2 ring-lavender",
         !selected && state === "idle" && disabled && "opacity-60",
       )}
     >
@@ -43,10 +43,16 @@ export function OptionButton({
             "bg-peach text-peach-foreground",
             state === "correct" && "bg-sage text-sage-foreground",
             state === "best" && "bg-sage text-sage-foreground",
-            state === "wrong" && "bg-rose text-rose-foreground",
+            state === "wrong" && "bg-apricot text-apricot-foreground",
           )}
         >
-          {letter}
+          {state === "correct" ? (
+            <span className="animate-chip">✓</span>
+          ) : state === "wrong" ? (
+            <span className="animate-chip inline-block size-2 rounded-full bg-current" aria-label="kurang tepat" />
+          ) : (
+            letter
+          )}
         </span>
         <span className="flex-1">
           <span className="block text-[0.95rem] leading-relaxed text-foreground">{text}</span>
