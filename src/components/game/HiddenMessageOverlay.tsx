@@ -50,12 +50,11 @@ export function HiddenMessageOverlay({ nickname, onContinue, replay = false }: P
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* redup hangat pekat, bukan gelap */}
+      {/* veil hangat pekat supaya kartu di belakang nggak ganggu */}
       <div
-        className="absolute inset-0 bg-rose-deep/25"
+        className="absolute inset-0 bg-background"
         style={{ animation: replay ? "fadeIn 300ms ease-out both" : "fadeIn 1s ease-out both" }}
       />
-      <div className="absolute inset-0 bg-background/85" />
 
       {/* partikel lembut jatuh — salju hangat */}
       {particles.map((p, i) => (
