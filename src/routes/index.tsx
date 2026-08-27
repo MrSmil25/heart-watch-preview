@@ -114,8 +114,15 @@ function Index() {
         milestones: { ...nextState.milestones, fullPersonaUnlocked: true },
       };
     }
+    if (newPlayed >= 20) {
+      nextState = {
+        ...nextState,
+        currentPersonaId: matchPersona(nextState.totalScore, newPlayed).id,
+      };
+    }
 
     setState(nextState);
+
 
     if (!wasPlayed && newPlayed === 15 && !nextState.milestones.hiddenMessageSeen) {
       setShowHiddenMessage(true);
