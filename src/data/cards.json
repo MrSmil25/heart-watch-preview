@@ -1,14 +1,32 @@
 {
   "meta": {
     "title": "Baca Aku",
-    "version": "3.0",
+    "version": "4.0",
     "language": "id",
-    "totalCards": 30,
+    "totalCards": 40,
     "voice": "kamu/aku — hangat, kasual, anak muda. Hindari istilah Inggris di feedback.",
     "scoringDimensions": [
-      { "key": "insight", "label": "Insight", "range": "-3 s/d +3", "description": "Seberapa tepat kamu nangkep maksud sebenarnya", "icon": "brain" },
-      { "key": "empathy", "label": "Empathy", "range": "-3 s/d +3", "description": "Seberapa pas responsmu sama yang dia butuhin", "icon": "heart" },
-      { "key": "socialDamage", "label": "Social Damage", "range": "0 s/d +3", "description": "Seberapa jauh responsmu nyakitin dia atau ngerusak hubungan. Makin kecil makin baik. Tidak pernah negatif.", "icon": "warning" }
+      {
+        "key": "insight",
+        "label": "Insight",
+        "range": "-3 s/d +3",
+        "description": "Seberapa tepat kamu nangkep maksud sebenarnya",
+        "icon": "brain"
+      },
+      {
+        "key": "empathy",
+        "label": "Empathy",
+        "range": "-3 s/d +3",
+        "description": "Seberapa pas responsmu sama yang dia butuhin",
+        "icon": "heart"
+      },
+      {
+        "key": "socialDamage",
+        "label": "Social Damage",
+        "range": "0 s/d +3",
+        "description": "Seberapa jauh responsmu nyakitin dia atau ngerusak hubungan. Makin kecil makin baik. Tidak pernah negatif.",
+        "icon": "warning"
+      }
     ],
     "scoringRules": {
       "socialDamage": "HANYA diisi kalau responsmu merugikan orang lain atau hubungan kalian. Pilihan yang cuma merugikan diri sendiri (kecapekan, kemakan omongan) tercermin di insight rendah, bukan di sini.",
@@ -22,617 +40,2747 @@
       "sarcasm": "Sarcasm Detector",
       "manipulation": "Manipulation Radar",
       "motive_detection": "Motive Detection",
-      "boundary_setting": "Boundary Setting"
+      "boundary_setting": "Boundary Setting",
+      "hidden_agenda": "Hidden Agenda"
     },
     "distribution": {
-      "hidden_feelings": 9,
+      "manipulation": 6,
+      "hidden_agenda": 4,
+      "motive_detection": 7,
+      "hidden_feelings": 10,
+      "boundary_setting": 4,
       "social_code": 5,
       "sarcasm": 4,
-      "manipulation": 4,
-      "motive_detection": 5,
-      "boundary_setting": 3,
-      "twistCards": 3
+      "twistCards": 5
+    },
+    "hiddenMessage": {
+      "triggerAfterCardsAnswered": 5,
+      "text": "HAPPY BIRTHDAY NAYAAA\n\nI hope you are always happy, lucky and safe\n\n- from Syamil"
+    },
+    "personaThresholds": {
+      "firstPersonaAt": 20,
+      "fullPersonaAt": 40
     }
   },
   "cards": [
     {
       "id": "01",
+      "category": "manipulation",
+      "twist": false,
+      "situation": "Ada orang yang belakangan sering muji kamu, tapi pujiannya selalu sambil ngebandingin: 'Kamu tuh beda ya sama temen-temen kamu yang lain. Kamu lebih dewasa. Mereka mah nggak ngerti kamu kayak aku.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Dia beneran ngerasa kamu spesial",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Pujian yang dipakai buat misahin kamu dari orang-orang terdekatmu",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia lagi cari bahan obrolan aja",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia nggak sadar omongannya ngebandingin",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Pujian yang tulus nggak butuh korban. Begitu ada pola 'kamu bagus, mereka nggak' yang diulang-ulang, yang lagi dibangun bukan rasa percaya diri kamu — tapi jarak antara kamu dan orang-orang yang selama ini jagain kamu.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Makasih, hehe.",
+          "insight": -2,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kelihatannya sepele. Tapi kalau diulang berbulan-bulan, kamu pelan-pelan percaya bahwa cuma dia yang ngerti kamu."
+        },
+        {
+          "id": "B",
+          "text": "Aku nggak ngerasa beda kok. Temen-temenku juga ngertiin aku.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu tolak bagian yang misahin, tanpa ribut. Orang yang tulus bakal santai aja. Yang niatnya lain biasanya mulai keliatan nggak enak."
+        },
+        {
+          "id": "C",
+          "text": "Iya sih, mereka emang gitu.",
+          "insight": -3,
+          "empathy": -2,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Kamu ikut ngomongin temen sendiri ke orang yang baru kenal. Ini langkah pertama yang paling sering kejadian."
+        },
+        {
+          "id": "D",
+          "text": "Kenapa sih kamu suka banget ngebandingin?",
+          "insight": 3,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Bacaannya tajem. Cuma langsung nabrak, dan dia bakal bales 'lah aku muji loh, kok kamu gitu'."
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "category": "hidden_agenda",
+      "twist": false,
+      "situation": "Ada temen yang sering banget bantuin kamu — traktir, anterin, minjemin. Tiap kamu bilang mau ganti, dia nolak: 'Nggak usah, santai.' Tapi belakangan, tiap dia minta sesuatu, dia selalu mulai dengan: 'Kan aku dulu udah sering bantuin kamu...'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Dia emang murah hati, cuma lagi butuh sekarang",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Bantuannya dicatat, dan sekarang lagi ditagih",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia lupa dia sendiri yang nolak diganti",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia cuma bercanda",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Bedanya kebaikan sama investasi ada di apa yang terjadi setelahnya. Kebaikan selesai pas dikasih. Investasi disimpen, terus dikeluarin pas dibutuhin. Nolak pas kamu mau ganti itu bukan kebetulan — utang yang nggak pernah lunas jauh lebih berguna.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Iya sih, aku emang banyak dibantu kamu.' terus iyain permintaannya",
+          "insight": -2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu bayar tagihan yang dulu udah kamu coba lunasin, dan ditolak."
+        },
+        {
+          "id": "B",
+          "text": "Dulu aku nawarin ganti, kamu yang bilang santai. Jadi yuk bahas permintaan kamu ini sendiri aja — aku bantu kalau emang bisa, bukan karena ngerasa ngutang.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu pisahin dua hal yang sengaja dia gabungin: kebaikan dulu, dan permintaan sekarang."
+        },
+        {
+          "id": "C",
+          "text": "Ya kan kamu sendiri yang bilang nggak usah diganti.",
+          "insight": 2,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Bener, tapi nadanya jadi berantem soal masa lalu, bukan nyelesaiin yang sekarang."
+        },
+        {
+          "id": "D",
+          "text": "Bantuin aja, tapi mulai jaga jarak diam-diam.",
+          "insight": 1,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu ngerasain polanya, tapi nggak pernah nyebutnya. Jadi polanya bakal terus jalan."
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "category": "motive_detection",
+      "twist": false,
+      "situation": "Kamu cerita satu hal pribadi ke temen barumu. Seminggu kemudian, orang lain yang nggak pernah kamu ceritain nyeletuk soal itu sambil ketawa. Pas kamu tanya, temen barumu jawab: 'Ih aku cuma cerita dikit kok. Lagian mereka nggak bakal ngomongin kamu.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Kelepasan aja, nggak sengaja",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Cerita kamu dipakai sebagai bahan biar dia cepet akrab sama orang lain",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia emang nggak nganggep itu rahasia",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Orang lain yang kepo duluan",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Perhatiin jawabannya: dia nggak minta maaf, dia ngecilin ('cuma dikit'), terus mindahin fokus ke orang lain ('mereka nggak bakal ngomongin kamu'). Orang yang beneran kelepasan biasanya kaget duluan, bukan ngebela diri duluan.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Ya udah, nggak apa-apa kok.",
+          "insight": -2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Buat dia, ini artinya boleh diulang."
+        },
+        {
+          "id": "B",
+          "text": "Buat aku itu bukan cerita kecil. Aku nggak marah kok, tapi buat sekarang aku nggak akan cerita hal pribadi lagi.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Tenang, jujur, dan ada konsekuensinya. Kepercayaan boleh dibangun lagi pelan-pelan — tapi mulai dari nol."
+        },
+        {
+          "id": "C",
+          "text": "Kok kamu tega sih?",
+          "insight": 2,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Bacaannya bener, tapi begitu jadi drama, yang dibahas malah reaksimu — bukan perbuatannya."
+        },
+        {
+          "id": "D",
+          "text": "Diemin, terus cerita-cerita lagi kayak biasa.",
+          "insight": -1,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu kasih akses yang sama ke orang yang baru aja nunjukin dia ngapain sama akses itu."
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "category": "hidden_feelings",
+      "twist": true,
+      "situation": "Belakangan temen deketmu jadi jarang bales, udah dua kali batalin janji, dan pas papasan di kampus cuma senyum tipis terus buru-buru pergi. Kamu mulai mikir jangan-jangan dia ngomongin kamu di belakang.",
+      "question": "Sebenernya kenapa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Dia emang lagi menjauh, mungkin ada yang ngomporin",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Dia lagi ada masalah sendiri yang berat, dan lagi nggak sanggup ketemu siapa-siapa",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia udah bosen temenan sama kamu",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia nunggu kamu peka dan nanya duluan",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Ini kebalikan dari kartu-kartu sebelumnya, dan penting. Orang menjauh itu paling sering soal kondisi dia, bukan soal kamu. Yang bikin kita salah: pas orang menghilang, otak kita otomatis ngisi kekosongannya pakai cerita yang paling nyakitin.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Ikut jaga jarak juga, biar nggak kelihatan butuh.",
+          "insight": -2,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Dua orang sama-sama mundur karena salah paham yang sama. Ini cara pertemanan mati tanpa ada yang salah."
+        },
+        {
+          "id": "B",
+          "text": "Aku notice kamu lagi agak beda belakangan. Nggak maksa cerita kok, cuma mau bilang aku ada kalau kamu butuh.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu buka pintu tanpa nuduh dan tanpa minta penjelasan. Buat orang yang lagi tenggelam, kalimat kayak gini kepake banget."
+        },
+        {
+          "id": "C",
+          "text": "Kamu ada masalah sama aku ya? Bilang aja.",
+          "insight": 0,
+          "empathy": 1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu jadiin diri sendiri pusat masalahnya, padahal mungkin ini sama sekali bukan tentang kamu."
+        },
+        {
+          "id": "D",
+          "text": "Tanya ke temen lain: 'dia kenapa sih sama aku?'",
+          "insight": -1,
+          "empathy": 0,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Kamu bikin cerita soal dia beredar, padahal kamu sendiri belum tau apa-apa."
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "category": "hidden_agenda",
+      "twist": false,
+      "situation": "Temenmu ngajak main ke rumahnya. Katanya cuma berdua, nonton sambil ngobrol santai. Pas kamu nyampe, ternyata ada beberapa orang lain yang nggak pernah dia sebut. Salah satunya cowok yang dari kemarin dia bilang 'pengen banget kenalin ke kamu'. Dia ketawa: 'Kaget ya? Sekalian aja lah, mumpung pada kumpul.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Kebetulan aja mereka dateng, dia belum sempet ngabarin",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Dari awal rencananya emang begini, dan kamu sengaja nggak dikasih tau",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia cuma pengen kamu punya temen baru",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Kamu yang kebanyakan mikir",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Bedanya kejutan sama jebakan ada di siapa yang diuntungkan. Kalau dia yakin kamu bakal seneng, dia bakal ngasih tau — orang biasanya pengen nyiapin diri. Nggak ngasih tau itu keputusan, dan biasanya diambil justru karena dia tau kamu mungkin nolak. Kamu selalu boleh pulang dari acara yang bukan kesepakatanmu.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Ikut duduk, ngobrol seadanya sampai acaranya kelar.",
+          "insight": -1,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Bisa aja aman. Tapi kamu baru aja ngajarin dia bahwa cara kayak gini berhasil ke kamu."
+        },
+        {
+          "id": "B",
+          "text": "'Wah aku nggak tau bakal rame. Aku mampir bentar aja ya, ada yang harus aku selesain.' Terus pulang lebih cepet.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu nggak perlu marah atau nuduh buat keluar dari situasi yang bukan kesepakatanmu. Alasan singkat, sopan, dan kendalinya balik ke kamu."
+        },
+        {
+          "id": "C",
+          "text": "'Kok kamu bohong sih? Katanya cuma berdua.' (di depan semua orang)",
+          "insight": 3,
+          "empathy": 0,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Bacaannya bener banget. Tapi diomongin di depan orang-orang bikin kamu yang keliatan bikin ribut, dan dia gampang bilang 'santai dong'."
+        },
+        {
+          "id": "D",
+          "text": "Ikut aja sampai selesai, kasian kalau dia kecewa.",
+          "insight": -3,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu jagain perasaan orang yang barusan nggak jujur sama kamu. Urutannya kebalik — perasaan kamu duluan."
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "category": "manipulation",
+      "twist": false,
+      "situation": "Ada satu temen yang tiap ketemu selalu bawa kabar: 'Eh aku denger si A ngomongin kamu loh.' 'Kayaknya si B nggak suka deh sama kamu.' Tapi tiap kamu tanya detailnya, jawabannya selalu ngambang: 'Aku lupa persisnya, pokoknya gitu deh.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Dia peduli, makanya ngasih tau",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Dia lagi bikin kamu curiga sama temen-temenmu, biar cuma dia yang kamu percaya",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia emang suka gosip aja",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia nggak enak nyebut detailnya",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Kabar yang beneran bikin kamu aman itu spesifik: siapa, kapan, ngomong apa. Kabar yang tujuannya bikin kamu goyah selalu ngambang — soalnya kalau detail, gampang dicek. Dan tiap kali kamu goyah sama yang lain, dia jadi satu-satunya yang kelihatan aman.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Hah serius? Kok dia gitu sih.",
+          "insight": -2,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu percaya versi yang nggak bisa dicek, dan sekarang ada satu temen yang kamu lihat beda tanpa dia tau kenapa."
+        },
+        {
+          "id": "B",
+          "text": "Kalau emang ada yang dia bilang, nanti aku tanya langsung ke orangnya ya. Aku nggak enak nilai orang dari cerita yang aku sendiri nggak denger.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu nggak nuduh dia bohong, tapi kamu nutup jalur yang dia pakai. Orang yang niatnya begini biasanya berhenti sendiri."
+        },
+        {
+          "id": "C",
+          "text": "Jangan bawa-bawa gosip ke aku deh.",
+          "insight": 2,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Tegas dan sah. Cuma nadanya bikin dia defensif, dan kamu nggak sempet lihat dia bakal ngapain kalau ditanya detail."
+        },
+        {
+          "id": "D",
+          "text": "Percaya, terus mulai dingin ke si A dan si B.",
+          "insight": -3,
+          "empathy": -1,
+          "socialDamage": 3,
+          "isBest": false,
+          "feedback": "Ini persis yang dia mau. Dan yang rugi bukan cuma kamu — dua temenmu kehilangan kamu tanpa pernah tau salahnya apa."
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "category": "hidden_agenda",
+      "twist": false,
+      "situation": "Kenalan baru selalu maksa bayarin kamu. Tiap kamu mau patungan, dia nolak keras sampai kamu nggak enak sendiri. Setelah beberapa kali, dia mulai ngajak ke tempat yang kamu nggak nyaman. Pas kamu ragu, dia bilang: 'Ayolah, masa gitu aja nggak mau. Aku selalu ada buat kamu loh.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Dia emang orangnya royal",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Traktirannya dipakai biar kamu susah nolak",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia cuma pengen ditemenin",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Kamu yang kelewat curiga",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Yang bikin ini beda dari temen yang emang royal: dia nolak keras tiap kamu mau bayar. Selama kamu nggak pernah impas, selalu ada saldo yang bisa dia sebut. Dan kalimat barusan itu tagihannya.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Ya udah deh ikut, kan dia udah baik banget.",
+          "insight": -3,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu bayar pakai kenyamanan kamu sendiri, buat sesuatu yang nggak pernah kamu minta."
+        },
+        {
+          "id": "B",
+          "text": "Aku appreciate banget kamu sering traktir. Tapi yang ini aku beneran nggak nyaman, dan itu nggak ada hubungannya sama traktiran. Lain kali gantian aku ya yang bayar.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu putus sambungan yang sengaja dia bikin antara kebaikan dan kepatuhan, sambil tetap hangat."
+        },
+        {
+          "id": "C",
+          "text": "Jangan traktir aku lagi deh.",
+          "insight": 2,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Ngerem polanya, tapi kedengeran kayak nuduh, dan kamu bakal disuruh jelasin maksudnya."
+        },
+        {
+          "id": "D",
+          "text": "Nolak tanpa alasan, terus ngilang pelan-pelan.",
+          "insight": 1,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Aman buat kamu, tapi kamu nggak pernah tau dia bakal reaksi gimana kalau dibatasin."
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "category": "hidden_agenda",
+      "twist": false,
+      "situation": "Ada senior yang selalu siap bantuin kamu, bahkan sebelum kamu minta. Tapi tiap kamu mau coba sendiri, dia bilang: 'Udah biar aku aja, kamu belum ngerti. Nanti malah salah.' Setahun kemudian kamu sadar ada beberapa hal dasar yang kamu masih nggak bisa kerjain sendiri.",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Dia baik banget, nggak mau kamu kesusahan",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Bantuannya bikin kamu terus-terusan butuh dia",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia cuma nggak sabar ngajarin",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia emang perfeksionis",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Orang yang beneran pengen kamu maju bakal ngajarin, walaupun lebih lama dan hasilnya lebih berantakan. Bisa jadi dia cuma nggak sabaran — itu versi polosnya. Tapi kalau setahun lewat dan kamu masih nggak bisa apa-apa sendiri, hasilnya sama aja: kamu nggak bisa pergi.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Ya udah terusin aja, kan dibantuin gratis.",
+          "insight": -2,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Gratis di depan, mahal di belakang. Yang kamu bayar adalah kemampuan kamu sendiri."
+        },
+        {
+          "id": "B",
+          "text": "Kak, kali ini aku mau coba sendiri dulu ya. Kalau salah nggak apa-apa, nanti aku minta dikoreksi.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu nggak nolak bantuannya, kamu cuma pindahin posisinya jadi di belakang kamu, bukan di depan."
+        },
+        {
+          "id": "C",
+          "text": "Kakak tuh nggak pernah ngasih aku kesempatan.",
+          "insight": 2,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Isinya bener, tapi jadi soal dia. Padahal yang kamu butuhin cuma satu kesempatan berikutnya."
+        },
+        {
+          "id": "D",
+          "text": "Mulai belajar diam-diam tanpa ngasih tau dia.",
+          "insight": 2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Aman dan efektif. Cuma kamu jadi harus sembunyi-sembunyi buat hal yang seharusnya wajar."
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "category": "motive_detection",
+      "twist": true,
+      "situation": "Ada temen yang hampir tiap minggu minta tolong kamu soal hal yang sama. Kamu mulai mikir dia cuma manfaatin kamu. Tapi pas kamu perhatiin lagi: dia selalu bawain kamu makanan, inget hal-hal kecil yang pernah kamu cerita, dan pernah dateng jauh-jauh pas kamu lagi susah.",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Tetep manfaatin, cuma dibungkus perhatian",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Dia beneran temen — cuma cara dia bales beda dari cara kamu ngasih",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia baik biar bisa terus minta tolong",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Belum cukup buat disimpulkan",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Nggak semua orang bales pakai mata uang yang sama. Ada yang bales pakai tenaga, ada yang pakai perhatian, ada yang pakai kehadiran pas kamu jatuh. Kalau kamu cuma ngitung satu jenis, kamu bisa salah nuduh orang yang justru paling tulus.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Mulai nolak-nolak halus biar dia nggak keenakan.",
+          "insight": -3,
+          "empathy": -2,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Kamu ngerem hubungan yang sebenernya sehat, cuma karena bentuk baliknya beda dari yang kamu harapin."
+        },
+        {
+          "id": "B",
+          "text": "Bantuin kayak biasa, dan mulai bilang ke dia hal-hal kecil yang kamu appreciate darinya.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu berhenti ngitung, dan mulai ngomong. Orang yang tulus biasanya nggak sadar dia udah ngasih apa."
+        },
+        {
+          "id": "C",
+          "text": "'Kamu tuh selalu minta tolong ya.' (bercanda tapi nyindir)",
+          "insight": -1,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Bercanda yang nyimpen tuduhan. Dia bakal ketawa, terus mikir semalaman."
+        },
+        {
+          "id": "D",
+          "text": "Diem aja, tapi mulai ngitung-ngitung dalam hati.",
+          "insight": -2,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Curiga yang dipendem itu tetep ngerusak, cuma pelan-pelan dan tanpa dia tau kenapa."
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "category": "boundary_setting",
+      "twist": false,
+      "situation": "Kamu denger dari orang lain bahwa temenmu ngenalin dirinya sebagai 'tim kamu' di sebuah acara yang kamu nggak pernah ajak dia. Pas kamu tanya, dia santai: 'Ya kan kita temen. Lagian bagus dong, jadi kebawa nama kamu.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Nggak masalah, itung-itung bantu dia",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Dia pakai nama kamu tanpa izin, dan kamu yang nanggung kalau dia bikin masalah di sana",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia salah paham soal statusnya",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia cuma pengen keliatan keren",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Yang dia pinjem bukan cuma nama, tapi kepercayaan yang kamu bangun bertahun-tahun. Kalau dia bikin kesan buruk di sana, yang ditanyain nanti kamu, bukan dia. Dan 'kan kita temen' itu dipasang biar kamu ngerasa jahat kalau protes.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Ya udah lah, nggak apa-apa.",
+          "insight": -2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Sekali dibiarin, ini bakal jadi kebiasaan — dan kamu nggak akan tau dia pakai nama kamu di mana lagi."
+        },
+        {
+          "id": "B",
+          "text": "Aku nggak nyaman nama aku dipakai tanpa aku tau, walaupun kita temen. Lain kali bilang dulu ya — kalau emang cocok, aku pasti bantu.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu tolak caranya, bukan orangnya. Dan kamu tetep buka pintu buat cara yang bener."
+        },
+        {
+          "id": "C",
+          "text": "Siapa yang bilang kamu tim aku?",
+          "insight": 2,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Bener, tapi bunyinya kayak nolak dia sebagai orang. Yang salah kan cara pakainya."
+        },
+        {
+          "id": "D",
+          "text": "Diemin, tapi mulai nggak ngajak dia ke acara apapun.",
+          "insight": 1,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Dia bakal ngerasa dijauhin tanpa pernah tau alasannya, dan polanya nggak berhenti."
+        }
+      ]
+    },
+    {
+      "id": "11",
       "category": "hidden_feelings",
       "twist": false,
       "situation": "Temen deket kamu ngirim voice note jam 11 malem: 'Eh, gapapa sih... cuma emang lagi banyak aja hari ini. Udah ya, aku tidur duluan. Night!' Suaranya agak serak.",
       "question": "Kira-kira dia lagi ngerasain apa?",
       "interpretations": [
-        { "id": "A", "text": "Capek doang, emang mau tidur", "isMostLikely": false },
-        { "id": "B", "text": "Ada masalah tapi nggak mau ngerepotin", "isMostLikely": false },
-        { "id": "C", "text": "Ngambek, pengen kamu yang nanya duluan", "isMostLikely": false },
-        { "id": "D", "text": "Abis nangis, pengen ditemenin tapi malu minta", "isMostLikely": true }
+        {
+          "id": "A",
+          "text": "Capek doang, emang mau tidur",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Ada masalah tapi nggak mau ngerepotin",
+          "isMostLikely": false
+        },
+        {
+          "id": "C",
+          "text": "Ngambek, pengen kamu yang nanya duluan",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Abis nangis, pengen ditemenin tapi malu minta",
+          "isMostLikely": true
+        }
       ],
       "reasoning": "Dia milih voice note, bukan chat. Jam 11 malem. Suara serak. Terus buru-buru nutup obrolan. Kalau cuma capek, biasanya orang nggak repot-repot ngerekam suara.",
       "responses": [
-        { "id": "A", "text": "Iya, tidur yang nyenyak ya!", "insight": -1, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Kamu jawab kalimatnya, bukan suaranya." },
-        { "id": "B", "text": "Kenapa emang? Cerita dong.", "insight": 1, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Niatnya bener, tapi buat orang yang lagi malu, ditodong cerita malah bikin makin nutup." },
-        { "id": "C", "text": "Kalau mau ngobrol, aku masih bangun kok. Kalau mau tidur juga gapapa, besok kita cerita.", "insight": 2, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu buka pintunya, tapi nggak narik dia masuk. Dia yang milih." },
-        { "id": "D", "text": "Yaudah tidur sana, jangan overthinking.", "insight": 0, "empathy": -1, "socialDamage": 1, "isBest": false, "feedback": "'Jangan overthinking' itu jarang bikin orang berhenti overthinking." }
-      ]
-    },
-    {
-      "id": "02",
-      "category": "social_code",
-      "twist": false,
-      "situation": "Di grup lagi rame ngerencanain nongkrong Sabtu. Salah satu temen tiba-tiba nyeletuk: 'Wah enak ya kalian sempet nongkrong-nongkrong. Aku mah sibuk terus.'",
-      "question": "Maksud dia apa?",
-      "interpretations": [
-        { "id": "A", "text": "Cuma cerita, emang lagi sibuk beneran", "isMostLikely": false },
-        { "id": "B", "text": "Pengen diajak tapi gengsi minta", "isMostLikely": true },
-        { "id": "C", "text": "Pamer jadwal padetnya", "isMostLikely": false },
-        { "id": "D", "text": "Nyindir karena udah lama nggak diajak", "isMostLikely": true }
-      ],
-      "reasoning": "B sama D dua-duanya kena, dan biasanya campur. Yang jelas bukan A — kalau cuma cerita sibuk, dia nggak akan mulai dari 'enak ya kalian'. Kalimat yang dimulai dengan ngebandingin diri sendiri itu jarang netral.",
-      "responses": [
-        { "id": "A", "text": "Iya sibuk emang enak, produktif!", "insight": -2, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Kamu jawab versi permukaannya. Sinyalnya lewat gitu aja." },
-        { "id": "B", "text": "Eh emang Sabtu nggak bisa? Kalau bisa ikut aja.", "insight": 2, "empathy": 2, "socialDamage": 0, "isBest": false, "feedback": "Udah bener, tinggal kurang satu langkah: ngakuin kenapa dia bisa ngerasa gitu." },
-        { "id": "C", "text": "Ya kan tinggal atur waktu aja, semua juga sibuk.", "insight": 0, "empathy": -2, "socialDamage": 2, "isBest": false, "feedback": "Ini bikin dia ngerasa dikoreksi di depan orang banyak." },
-        { "id": "D", "text": "Kayaknya emang aku yang jarang ngajak kamu belakangan ya. Sabtu ikut, yuk?", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu ngambil bagian kamu duluan, baru ngajak. Dia jadi ngerasa dilihat, bukan dikasihanin." }
-      ]
-    },
-    {
-      "id": "03",
-      "category": "hidden_feelings",
-      "twist": false,
-      "situation": "Kamu nanya 'gimana kabarmu?' ke temen deket. Dia jawab 'Baik-baik aja kok, biasa.' Tapi ini ketiga kalinya minggu ini, dan dia udah lama nggak pernah chat duluan.",
-      "question": "Sebenernya gimana?",
-      "interpretations": [
-        { "id": "A", "text": "Emang baik-baik aja, orangnya emang pendiem", "isMostLikely": false },
-        { "id": "B", "text": "Kecapekan berat tapi dia sendiri belum nyadar", "isMostLikely": true },
-        { "id": "C", "text": "Ada sesuatu, tapi dia ngerasa nggak worth diceritain", "isMostLikely": true },
-        { "id": "D", "text": "Ngambek sama kamu", "isMostLikely": false }
-      ],
-      "reasoning": "'Baik-baik aja' yang diulang-ulang itu jawaban default orang yang lagi kehabisan tenaga. Yang lebih ngasih tau bukan jawabannya, tapi dia berhenti chat duluan.",
-      "responses": [
-        { "id": "A", "text": "Oke deh, kabarin ya kalau butuh apa-apa.", "insight": 0, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Sopan, tapi 'kabarin ya' jarang beneran dipakai sama orang yang lagi berat." },
-        { "id": "B", "text": "'Baik' yang beneran baik, atau 'baik' yang kita bilang pas lagi capek banget?", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Kalimat ini bikin orang berhenti sebentar. Nggak maksa cerita, cuma ngasih tau bahwa kamu nggak nelen jawabannya bulat-bulat." },
-        { "id": "C", "text": "Ah masa sih, pasti ada deh. Cerita dong!", "insight": 1, "empathy": 0, "socialDamage": 1, "isBest": false, "feedback": "Kamu bacanya bener, tapi caranya nekan. Dia bisa makin nutup." },
-        { "id": "D", "text": "Yaudah kalau baik, aku nggak nanya-nanya lagi deh.", "insight": -2, "empathy": -2, "socialDamage": 2, "isBest": false, "feedback": "Ini kedengeran kayak ngambek balik. Padahal dia yang lagi berat." }
-      ]
-    },
-    {
-      "id": "04",
-      "category": "sarcasm",
-      "twist": false,
-      "situation": "Kamu telat 40 menit ke janjian. Pas nyampe, temenmu bilang: 'Wah akhirnya. Aku udah pindah tiga warung, sekalian kelar satu bab buku.'",
-      "question": "Maksud dia apa?",
-      "interpretations": [
-        { "id": "A", "text": "Bercanda doang, nggak marah", "isMostLikely": false },
-        { "id": "B", "text": "Kesel, tapi nahan biar tetep santai", "isMostLikely": true },
-        { "id": "C", "text": "Marah banget, itu sindiran keras", "isMostLikely": false },
-        { "id": "D", "text": "Beneran santai, orangnya emang gitu", "isMostLikely": false }
-      ],
-      "reasoning": "Bercandanya pakai angka: tiga warung, satu bab. Orang yang beneran santai nggak ngitung. Yang diitung biasanya yang kerasa.",
-      "responses": [
-        { "id": "A", "text": "Wkwk kamu mah santai orangnya.", "insight": -1, "empathy": -1, "socialDamage": 1, "isBest": false, "feedback": "Kamu ambil bercandanya, buang keselnya. Padahal keselnya yang dia mau kamu denger." },
-        { "id": "B", "text": "Duh maaf banget, aku ngaco. Aku traktir kopi deh.", "insight": 2, "empathy": 2, "socialDamage": 0, "isBest": false, "feedback": "Udah lumayan. Yang kurang: ngakuin dia nunggunya selama apa." },
-        { "id": "C", "text": "Sori telat, tadi macet parah.", "insight": 0, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Alesan duluan, minta maaf belakangan. Urutannya kebalik." },
-        { "id": "D", "text": "Maaf banget ya, aku nggak nyangka selama itu. Besok-besok aku berangkat lebih awal. Sekarang aku traktir apa aja yang kamu mau.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Ngakuin dampaknya, janji yang konkret, terus nawarin sesuatu. Lengkap." }
-      ]
-    },
-    {
-      "id": "05",
-      "category": "manipulation",
-      "twist": false,
-      "situation": "Sepupumu chat: 'Nggak apa-apa kok kalau kamu nggak sempet dateng ke ulang tahunku. Aku ngerti kamu sibuk. Lagian aku udah biasa kok yang dateng cuma sedikit.'",
-      "question": "Ini apa?",
-      "interpretations": [
-        { "id": "A", "text": "Beneran ngerti kamu sibuk", "isMostLikely": false },
-        { "id": "B", "text": "Kecewa tapi maksa keliatan santai", "isMostLikely": true },
-        { "id": "C", "text": "Sengaja bikin kamu nggak enak biar tetep dateng", "isMostLikely": false },
-        { "id": "D", "text": "Nggak yakin sama nilainya sendiri buat orang lain", "isMostLikely": true }
-      ],
-      "reasoning": "Kalimat pertama ngasih izin, kalimat terakhir narik izinnya balik. 'Aku udah biasa yang dateng cuma sedikit' itu bagian yang sebenernya pengen didenger. Belum tentu dia sengaja — orang sering nggak sadar lagi ngelakuin ini.",
-      "responses": [
-        { "id": "A", "text": "Makasih ya pengertiannya, next time deh.", "insight": -2, "empathy": -2, "socialDamage": 2, "isBest": false, "feedback": "Kamu ambil izinnya, tapi kalimat terakhirnya kamu lewatin. Yang begini suka nempel lama." },
-        { "id": "B", "text": "Aku usahain dateng ya. Jam berapa acaranya?", "insight": 2, "empathy": 2, "socialDamage": 0, "isBest": false, "feedback": "Bagus dan aman. Cuma 'usahain' masih ngambang buat orang yang lagi ragu diri." },
-        { "id": "C", "text": "Eh jangan gitu dong. Aku dateng kok. Kamu penting buat aku.", "insight": 2, "empathy": 3, "socialDamage": 0, "isBest": false, "feedback": "Hangat dan langsung ke intinya. Kadang orang emang butuh diyakinin, bukan dianalisis." },
-        { "id": "D", "text": "Kamu bilang nggak apa-apa, tapi kayaknya kamu masih pengen aku dateng deh. Bilang jujur aja, biar aku atur waktunya.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu nyebut yang nggak dia sebut, tapi tetep ngasih dia jalan keluar yang nggak malu-maluin." }
-      ]
-    },
-    {
-      "id": "06",
-      "category": "hidden_feelings",
-      "twist": false,
-      "situation": "Kamu baru keterima magang bagus. Pas kamu cerita, temen deketmu bilang 'Wih keren! Emang kamu sih emang jago.' Terus dia jadi diem, dan nggak lama pamit pulang duluan.",
-      "question": "Kenapa ya?",
-      "interpretations": [
-        { "id": "A", "text": "Seneng beneran, cuma emang ada urusan", "isMostLikely": false },
-        { "id": "B", "text": "Ikut seneng, tapi diam-diam jadi kepikiran nasibnya sendiri", "isMostLikely": true },
-        { "id": "C", "text": "Iri dan keganggu sama pencapaianmu", "isMostLikely": false },
-        { "id": "D", "text": "Ada urusan pribadi yang nggak nyambung sama ini", "isMostLikely": false }
-      ],
-      "reasoning": "Dua perasaan bisa jalan bareng. Dia beneran ikut seneng, dan kabarmu juga ngingetin dia sama posisinya sendiri. Itu bukan jahat, itu manusiawi banget.",
-      "responses": [
-        { "id": "A", "text": "Oke, hati-hati di jalan ya!", "insight": -2, "empathy": -1, "socialDamage": 0, "isBest": false, "feedback": "Momennya lewat begitu aja." },
-        { "id": "B", "text": "Eh kenapa? Kok mendadak?", "insight": 1, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Nanya langsung bikin dia harus ngaku, dan itu yang paling nggak mau dia lakuin sekarang." },
-        { "id": "C", "text": "Btw kamu lagi apply-apply juga kan? Gimana progresnya?", "insight": 2, "empathy": 3, "socialDamage": 0, "isBest": false, "feedback": "Kamu geser sorotannya ke dia tanpa bikin canggung. Halus." },
-        { "id": "D", "text": "Eh, maaf ya kalau ceritaku barusan bikin kamu kepikiran sesuatu. Aku bukan mau pamer kok.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Berani. Kamu nyebut hal yang biasanya cuma dipendem dua-duanya. Kalau dia siap, obrolan kalian bisa jadi jauh lebih dalem." }
-      ]
-    },
-    {
-      "id": "07",
-      "category": "motive_detection",
-      "twist": false,
-      "situation": "Senior organisasi yang lumayan terkenal tiba-tiba japri kamu: 'Eh, aku denger kamu jago desain ya? Aku ada deadline besok pagi nih. Kalau kamu bantu bikin 5 poster, nanti aku rekomendasiin kamu buat posisi bagus tahun depan. Gimana?'",
-      "question": "Ini apa?",
-      "interpretations": [
-        { "id": "A", "text": "Tawaran tulus, dia mau bantu karier kamu", "isMostLikely": false },
-        { "id": "B", "text": "Emang lagi kepepet, dan mau tukeran jasa", "isMostLikely": false },
-        { "id": "C", "text": "Kerja nyata sekarang, ditukar janji yang ngambang nanti", "isMostLikely": true },
-        { "id": "D", "text": "Iseng ngetes kamu bakal mau apa nggak", "isMostLikely": false }
-      ],
-      "reasoning": "Perhatiin timbangannya: yang kamu kasih jelas dan sekarang (5 poster, malam ini). Yang kamu terima kabur dan nanti ('posisi bagus tahun depan'). Tawaran yang tulus biasanya bayarannya sejelas kerjaannya.",
-      "responses": [
-        { "id": "A", "text": "Wah boleh kak, aku bantu!", "insight": -3, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Yang keluar nyata, yang masuk masih berupa kalimat. Ini pola yang sering banget kejadian." },
-        { "id": "B", "text": "Boleh kak, tapi boleh lihat brief lengkapnya dulu? Sekalian penasaran, rekomendasinya nanti jalannya gimana ya?", "insight": 3, "empathy": 1, "socialDamage": 0, "isBest": true, "feedback": "Kamu nggak nolak, tapi kamu minta yang ngambang jadi jelas. Kalau dia tulus, dia bakal jawab detail. Kalau enggak, jawabannya bakal muter." },
-        { "id": "C", "text": "Maaf kak, aku juga lagi ada deadline sendiri.", "insight": 2, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Aman dan sah. Kamu nggak wajib jelasin apa-apa." },
-        { "id": "D", "text": "Kalau seurgent ini aku lebih nyaman kalau bayarannya jelas kak — fee, atau kalau emang tukeran rekomendasi, dibahas di grup pengurus aja biar semua tau.", "insight": 3, "empathy": 0, "socialDamage": 1, "isBest": false, "feedback": "Paling aman jangka panjang, tapi nadanya bisa kebaca nantangin kalau seniornya tipe yang gampang tersinggung." }
-      ]
-    },
-    {
-      "id": "08",
-      "category": "motive_detection",
-      "twist": false,
-      "situation": "Baru tiga minggu di lingkungan baru — kampus baru, asrama, atau komunitas beasiswa. Satu orang langsung deket banget: chat tiap hari, ngajak makan dua kali seminggu, beliin kopi 'soalnya tadi keinget kamu', dan bilang 'kamu tuh temen terbaik aku di sini.'",
-      "question": "Ini apa?",
-      "interpretations": [
-        { "id": "A", "text": "Emang orangnya hangat dan gampang nyambung", "isMostLikely": false },
-        { "id": "B", "text": "Dia kesepian dan butuh temen, kamu yang kebetulan ada", "isMostLikely": true },
-        { "id": "C", "text": "Deketnya dipercepat — biasanya ujungnya nuntut atau kecewa besar", "isMostLikely": true },
-        { "id": "D", "text": "Dia lagi ngukur kamu bisa dipakai buat apa", "isMostLikely": false }
-      ],
-      "reasoning": "Tiga minggu buat sampai 'temen terbaik' itu kecepetan. B tulus tapi rapuh, C polanya bermasalah. Dua-duanya minta kamu hati-hati, bukan curiga.",
-      "responses": [
-        { "id": "A", "text": "Aduh, kamu juga temen terbaik aku!", "insight": -2, "empathy": 2, "socialDamage": 1, "isBest": false, "feedback": "Kamu iyain harapan yang belum sempet kebentuk. Nanti pas kamu nggak bisa terus-terusan ada, dia bisa ngerasa dikhianatin." },
-        { "id": "B", "text": "Terima kopinya, tapi mulai kasih jarak pelan-pelan — bales agak lama, sesekali nolak ajakan.", "insight": 2, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Aman, tapi dia bakal ngerasa ada yang berubah tanpa tau kenapa." },
-        { "id": "C", "text": "Aku seneng banget kenal kamu. Tapi jujur aku tuh orangnya lama kalau mau deket sama orang. Bukan karena kamu, emang aku gitu.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Jujur, hangat, dan nggak nuduh. Kalau dia tulus, dia bakal ngerti. Kalau enggak, biasanya di sini dia mulai keliatan aslinya." },
-        { "id": "D", "text": "Didiemin atau langsung diblokir.", "insight": 1, "empathy": -3, "socialDamage": 2, "isBest": false, "feedback": "Kejauhan. Bisa jadi dia beneran cuma kesepian." }
-      ]
-    },
-    {
-      "id": "09",
-      "category": "boundary_setting",
-      "twist": false,
-      "situation": "Adik tingkat terus-terusan minta tolong revisi tugas. Awalnya kamu bantu, kasian dia masih baru. Tapi udah tiga minggu ini dia ngirim tugasnya tiap mau deadline, selalu jam 11 malem: 'Kak tolong yaaa aku nggak ngerti, kakak kan baik pasti mau bantuin :(((.'",
-      "question": "Ini apa?",
-      "interpretations": [
-        { "id": "A", "text": "Dia emang kesulitan, dan kamu jadi tempat dia bertahan", "isMostLikely": false },
-        { "id": "B", "text": "Kamu udah jadi jalan pintas otomatis tiap dia kepepet", "isMostLikely": true },
-        { "id": "C", "text": "Dia sengaja muji dulu biar kamu nggak enak nolak", "isMostLikely": true },
-        { "id": "D", "text": "Dia nggak sadar udah minta sesering itu", "isMostLikely": false }
-      ],
-      "reasoning": "Bukan berarti dia jahat. Tapi polanya udah kebentuk, dan 'kakak kan baik' itu kunci yang dipakai buat buka pintu. Baik tanpa batas itu kebaca sebagai selalu bisa ditagih.",
-      "responses": [
-        { "id": "A", "text": "Oke kirim aja, aku bantu. (lagi)", "insight": -2, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Baik banget, tapi polanya makin kekunci. Semester depan kamu bakal jadi cadangan deadline permanen." },
-        { "id": "B", "text": "Maaf ya dek, malem ini aku nggak bisa. Coba tanya temen sekelas atau asisten dosen.", "insight": 2, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Sah dan jelas. Cuma nggak nyelesaiin polanya, minggu depan bakal ada lagi." },
-        { "id": "C", "text": "Aku notice beberapa minggu ini kamu selalu ngirim jam segini. Malem ini aku bantu, tapi habis ini aku nggak bisa jadi tempat kamu nyelametin deadline ya. Kamu perlu latihan ngatur sendiri. Gimana?", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Kamu sebut polanya, kasih batas yang jelas, tapi tetep nggak ninggalin dia. Ini batasan yang sehat, bukan tega." },
-        { "id": "D", "text": "Kok tiap kali selalu jam segini sih? Kakak juga sibuk kali.", "insight": 1, "empathy": -1, "socialDamage": 1, "isBest": false, "feedback": "Isinya bener, nadanya bikin dia defensif. Sayang." }
-      ]
-    },
-    {
-      "id": "10",
-      "category": "hidden_feelings",
-      "twist": false,
-      "situation": "Ada temen yang dulu deket banget, sering telfonan lama. Setahun terakhir jarang chat karena sama-sama sibuk dan beda kota. Suatu malem dia tiba-tiba ngirim voice note: 'Hai... lama ya nggak ngobrol. Random aja tadi keinget waktu kita dulu. Kamu apa kabar?'",
-      "question": "Ini apa?",
-      "interpretations": [
-        { "id": "A", "text": "Iseng doang, nggak ada maksud apa-apa", "isMostLikely": false },
-        { "id": "B", "text": "Lagi sepi, terus keinget orang yang bikin nyaman", "isMostLikely": true },
-        { "id": "C", "text": "Sebenernya keingetnya bukan sekali. Ini versi amannya dari 'aku kangen'", "isMostLikely": true },
-        { "id": "D", "text": "Lagi ada masalah dan kamu orang yang dia percaya", "isMostLikely": false }
-      ],
-      "reasoning": "Dia milih voice note, bukan chat. Nyebut momen spesifik. Dan dia yang mulai duluan setelah setahun diem. Orang jarang ngelakuin tiga hal itu sekaligus buat sesuatu yang beneran random.",
-      "responses": [
-        { "id": "A", "text": "Hai! Baik kok. Kamu gimana?", "insight": -1, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Aman, tapi momen yang tadinya hangat balik jadi basa-basi." },
-        { "id": "B", "text": "Ehh! Aku juga kadang keinget yang itu. Lagi ngapain sekarang?", "insight": 2, "empathy": 2, "socialDamage": 0, "isBest": false, "feedback": "Kamu bales hangatnya. Bagus." },
-        { "id": "C", "text": "Aku baik, sibuk banget tapi baik. Jujur aku juga sering keinget momen-momen itu, cuma nggak tau mau mulai chat dari mana jadi diem aja. Makasih ya udah nyapa duluan.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu bilang bagian yang biasanya orang tahan. Dan kamu ngakuin dia yang lebih berani duluan." },
-        { "id": "D", "text": "Kamu kenapa? Ada apa?", "insight": 1, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Langsung nebak dia lagi ada masalah, padahal mungkin dia cuma pengen ngobrol." }
-      ]
-    },
-    {
-      "id": "11",
-      "category": "sarcasm",
-      "twist": false,
-      "situation": "Kamu upload story lagi nongkrong sama circle baru. Sahabat lamamu yang sekarang jarang ketemu komen di story: 'Wih banyak temen baru ya sekarang. Aku mah nonton aja dari sini 😊'",
-      "question": "Ini apa?",
-      "interpretations": [
-        { "id": "A", "text": "Seneng liat kamu punya circle baru", "isMostLikely": false },
-        { "id": "B", "text": "Nyindir kamu udah lupa sama dia", "isMostLikely": false },
-        { "id": "C", "text": "Ngerasa ketinggalan, tapi dibungkus becanda", "isMostLikely": true },
-        { "id": "D", "text": "Pengen kamu cepet-cepet bales", "isMostLikely": false }
-      ],
-      "reasoning": "'Aku mah' itu ngecilin diri sendiri. Emoji senyumnya justru nutupin, bukan nunjukin. Dan dia komen di tempat yang keliatan orang, bukan DM. Kalau beneran seneng, biasanya nanya 'seru banget, di mana tuh?'",
-      "responses": [
-        { "id": "A", "text": "Wkwk lebay banget sih. Sini ikut kalau mau.", "insight": 1, "empathy": 0, "socialDamage": 1, "isBest": false, "feedback": "Ajakannya bener, tapi 'lebay' bikin dia nyesel udah komen." },
-        { "id": "B", "text": "Eh iya kita udah lama banget nggak ketemu. Weekend besok ngopi yuk, berdua aja.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu jawab yang dia rasain, bukan yang dia tulis. Dan ajakannya spesifik — 'berdua aja' itu yang bikin beda." },
-        { "id": "C", "text": "Ih kamu mah suka lebay 😆", "insight": -2, "empathy": -2, "socialDamage": 2, "isBest": false, "feedback": "Dia lagi setengah serius, kamu perlakuin sebagai lelucon penuh." },
-        { "id": "D", "text": "Bales lewat DM: 'Btw komen kamu tadi, kayaknya ada sesuatu deh. Kamu nggak apa-apa kan?'", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": false, "feedback": "Mindahin ke ruang privat itu langkah yang bagus banget." }
+        {
+          "id": "A",
+          "text": "Iya, tidur yang nyenyak ya!",
+          "insight": -1,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu jawab kalimatnya, bukan suaranya."
+        },
+        {
+          "id": "B",
+          "text": "Kenapa emang? Cerita dong.",
+          "insight": 1,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Niatnya bener, tapi buat orang yang lagi malu, ditodong cerita malah bikin makin nutup."
+        },
+        {
+          "id": "C",
+          "text": "Kalau mau ngobrol, aku masih bangun kok. Kalau mau tidur juga gapapa, besok kita cerita.",
+          "insight": 2,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu buka pintunya, tapi nggak narik dia masuk. Dia yang milih."
+        },
+        {
+          "id": "D",
+          "text": "Yaudah tidur sana, jangan overthinking.",
+          "insight": 0,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "'Jangan overthinking' itu jarang bikin orang berhenti overthinking."
+        }
       ]
     },
     {
       "id": "12",
       "category": "social_code",
       "twist": false,
-      "situation": "Kamu baru selesai presentasi tugas kelompok yang kamu sendiri tau persiapannya kurang. Dosennya cuma bilang: 'Menarik. Silakan duduk. Kelompok berikutnya.'",
-      "question": "Maksudnya apa?",
+      "situation": "Di grup lagi rame ngerencanain nongkrong Sabtu. Salah satu temen tiba-tiba nyeletuk: 'Wah enak ya kalian sempet nongkrong-nongkrong. Aku mah sibuk terus.'",
+      "question": "Maksud dia apa?",
       "interpretations": [
-        { "id": "A", "text": "Dosennya puas, ya udah lanjut", "isMostLikely": false },
-        { "id": "B", "text": "Kurang puas — 'menarik' itu versi sopan dari 'ya gitu deh'", "isMostLikely": true },
-        { "id": "C", "text": "Netral, nggak ada masalah", "isMostLikely": false },
-        { "id": "D", "text": "Kesel tapi nggak mau bikin ribut di kelas", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Cuma cerita, emang lagi sibuk beneran",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Pengen diajak tapi gengsi minta",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Pamer jadwal padetnya",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Nyindir karena udah lama nggak diajak",
+          "isMostLikely": true
+        }
       ],
-      "reasoning": "'Menarik' yang berdiri sendiri, tanpa pertanyaan lanjutan, terus langsung pindah kelompok. Dosen yang beneran tertarik biasanya nanya. Yang nggak tertarik biasanya milih kata yang aman.",
+      "reasoning": "B sama D dua-duanya kena, dan biasanya campur. Yang jelas bukan A — kalau cuma cerita sibuk, dia nggak akan mulai dari 'enak ya kalian'. Kalimat yang dimulai dengan ngebandingin diri sendiri itu jarang netral.",
       "responses": [
-        { "id": "A", "text": "Ya udahlah, yang penting kelar.", "insight": -2, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Nggak nyakitin siapa-siapa, tapi minggu depan kejadian yang sama bakal terulang." },
-        { "id": "B", "text": "Habis kelas, kirim pesan ke dosennya: 'Pak/Bu, boleh minta masukan soal presentasi kami tadi? Biar kami tau yang perlu diperbaiki.'", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Nanya langsung ke sumbernya. Sekalian ngasih tau dosen bahwa kamu sadar dan mau benerin." },
-        { "id": "C", "text": "Ke temen sekelompok: 'Kayaknya kurang nih. Yuk kita bedah lagi buat next.'", "insight": 2, "empathy": 2, "socialDamage": 0, "isBest": false, "feedback": "Bagus — kamu ngajak tim, bukan nyalahin tim." },
-        { "id": "D", "text": "Nyalahin salah satu anggota di grup chat.", "insight": 1, "empathy": -3, "socialDamage": 3, "isBest": false, "feedback": "Kamu mungkin bener soal siapa yang kurang, tapi caranya ngerusak timnya sekaligus nama kamu." }
+        {
+          "id": "A",
+          "text": "Iya sibuk emang enak, produktif!",
+          "insight": -2,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu jawab versi permukaannya. Sinyalnya lewat gitu aja."
+        },
+        {
+          "id": "B",
+          "text": "Eh emang Sabtu nggak bisa? Kalau bisa ikut aja.",
+          "insight": 2,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Udah bener, tinggal kurang satu langkah: ngakuin kenapa dia bisa ngerasa gitu."
+        },
+        {
+          "id": "C",
+          "text": "Ya kan tinggal atur waktu aja, semua juga sibuk.",
+          "insight": 0,
+          "empathy": -2,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Ini bikin dia ngerasa dikoreksi di depan orang banyak."
+        },
+        {
+          "id": "D",
+          "text": "Kayaknya emang aku yang jarang ngajak kamu belakangan ya. Sabtu ikut, yuk?",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu ngambil bagian kamu duluan, baru ngajak. Dia jadi ngerasa dilihat, bukan dikasihanin."
+        }
       ]
     },
     {
       "id": "13",
       "category": "hidden_feelings",
       "twist": false,
-      "situation": "Ibu chat malem-malem: 'Nggak apa-apa kok kamu jarang pulang, ibu ngerti kamu sibuk. Malem ini ibu masak yang biasa aja, nggak ada yang spesial.'",
-      "question": "Ini apa?",
+      "situation": "Kamu nanya 'gimana kabarmu?' ke temen deket. Dia jawab 'Baik-baik aja kok, biasa.' Tapi ini ketiga kalinya minggu ini, dan dia udah lama nggak pernah chat duluan.",
+      "question": "Sebenernya gimana?",
       "interpretations": [
-        { "id": "A", "text": "Ibu emang cuma ngabarin", "isMostLikely": false },
-        { "id": "B", "text": "Ibu kangen tapi nggak mau ngerepotin", "isMostLikely": true },
-        { "id": "C", "text": "Ibu lagi kecewa tapi tetep pengen keliatan ngerti", "isMostLikely": true },
-        { "id": "D", "text": "Ibu lagi capek dan cuma pengen ngobrol", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Emang baik-baik aja, orangnya emang pendiem",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Kecapekan berat tapi dia sendiri belum nyadar",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Ada sesuatu, tapi dia ngerasa nggak worth diceritain",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Ngambek sama kamu",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Kalimat 'nggak ada yang spesial' itu kuncinya. Artinya biasanya ada yang spesial — pas kamu pulang. Ini bukan manipulasi, ini cara ngomong sayang yang muter.",
+      "reasoning": "'Baik-baik aja' yang diulang-ulang itu jawaban default orang yang lagi kehabisan tenaga. Yang lebih ngasih tau bukan jawabannya, tapi dia berhenti chat duluan.",
       "responses": [
-        { "id": "A", "text": "Iya bu, minggu depan aku pulang deh insyaallah.", "insight": 1, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Bener, tapi 'insyaallah minggu depan' udah kayak lagu lama buat kebanyakan ibu." },
-        { "id": "B", "text": "Bu, aku juga kangen banget masakan ibu. Weekend ini aku pulang ya, kita masak bareng kayak dulu.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu bales kangennya dengan kangen, terus kasih tanggal. Yang bikin tenang itu tanggalnya." },
-        { "id": "C", "text": "Ya udah bu, nanti kalau aku nggak sibuk aku pulang.", "insight": -2, "empathy": -2, "socialDamage": 2, "isBest": false, "feedback": "Ibu ngasih pintu, kamu tutup pelan-pelan. Ini yang paling kerasa." },
-        { "id": "D", "text": "Video call sekarang: 'Bu, aku telfon dulu ya, sambil ibu masak.'", "insight": 2, "empathy": 3, "socialDamage": 0, "isBest": false, "feedback": "Hadir sekarang juga. Kadang itu lebih berarti daripada janji nanti." }
+        {
+          "id": "A",
+          "text": "Oke deh, kabarin ya kalau butuh apa-apa.",
+          "insight": 0,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Sopan, tapi 'kabarin ya' jarang beneran dipakai sama orang yang lagi berat."
+        },
+        {
+          "id": "B",
+          "text": "'Baik' yang beneran baik, atau 'baik' yang kita bilang pas lagi capek banget?",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kalimat ini bikin orang berhenti sebentar. Nggak maksa cerita, cuma ngasih tau bahwa kamu nggak nelen jawabannya bulat-bulat."
+        },
+        {
+          "id": "C",
+          "text": "Ah masa sih, pasti ada deh. Cerita dong!",
+          "insight": 1,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu bacanya bener, tapi caranya nekan. Dia bisa makin nutup."
+        },
+        {
+          "id": "D",
+          "text": "Yaudah kalau baik, aku nggak nanya-nanya lagi deh.",
+          "insight": -2,
+          "empathy": -2,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Ini kedengeran kayak ngambek balik. Padahal dia yang lagi berat."
+        }
       ]
     },
     {
       "id": "14",
-      "category": "motive_detection",
+      "category": "sarcasm",
       "twist": false,
-      "situation": "Temen di grup penerima beasiswa yang biasanya cuek banget tiba-tiba japri: 'Eh boleh minta motivation letter kamu nggak? Aku mau apply beasiswa yang mirip. Kamu kan udah pengalaman.'",
-      "question": "Ini apa?",
+      "situation": "Kamu telat 40 menit ke janjian. Pas nyampe, temenmu bilang: 'Wah akhirnya. Aku udah pindah tiga warung, sekalian kelar satu bab buku.'",
+      "question": "Maksud dia apa?",
       "interpretations": [
-        { "id": "A", "text": "Tulus mau belajar, dan kamu emang track record-nya bagus", "isMostLikely": false },
-        { "id": "B", "text": "Cari jalan pintas, mau nyontek daripada nulis sendiri", "isMostLikely": true },
-        { "id": "C", "text": "Ngetes dulu — kalau dikasih, nanti bakal minta yang lain lagi", "isMostLikely": false },
-        { "id": "D", "text": "Emang lagi bingung mulai dari mana", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Bercanda doang, nggak marah",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Kesel, tapi nahan biar tetep santai",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Marah banget, itu sindiran keras",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Beneran santai, orangnya emang gitu",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Yang bikin ini beda dari permintaan biasa: dia minta hasil jadi, bukan cara bikinnya. Orang yang tulus mau belajar biasanya nanya 'gimana cara kamu nyusunnya?', bukan 'boleh minta punyamu?'.",
+      "reasoning": "Bercandanya pakai angka: tiga warung, satu bab. Orang yang beneran santai nggak ngitung. Yang diitung biasanya yang kerasa.",
       "responses": [
-        { "id": "A", "text": "Nih, sekalian esai-esai aku yang lain juga ya.", "insight": -2, "empathy": 2, "socialDamage": 0, "isBest": false, "feedback": "Murah hati banget, tapi kamu ngasih hal yang paling pribadi dari perjuanganmu sendiri." },
-        { "id": "B", "text": "Aku kurang nyaman ngasih yang aku pakai buat apply. Tapi aku bisa share bahan-bahan yang dulu ngebantu aku, atau kita ngobrol 30 menit soal cara nyusunnya. Mau?", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Kamu tetep nolong, tapi yang kamu kasih ilmunya, bukan karyanya. Kalau dia tulus, dia ambil tawaran ini." },
-        { "id": "C", "text": "Maaf, aku nggak share motivation letter aku ke siapa-siapa.", "insight": 2, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Tegas dan sah. Kamu nggak wajib ngasih alasan." },
-        { "id": "D", "text": "Nggak dibales sama sekali.", "insight": 0, "empathy": -1, "socialDamage": 1, "isBest": false, "feedback": "Ngambang. Dia nggak dapet jawaban, kamu dapet nama 'yang suka nge-read doang'." }
+        {
+          "id": "A",
+          "text": "Wkwk kamu mah santai orangnya.",
+          "insight": -1,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu ambil bercandanya, buang keselnya. Padahal keselnya yang dia mau kamu denger."
+        },
+        {
+          "id": "B",
+          "text": "Duh maaf banget, aku ngaco. Aku traktir kopi deh.",
+          "insight": 2,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Udah lumayan. Yang kurang: ngakuin dia nunggunya selama apa."
+        },
+        {
+          "id": "C",
+          "text": "Sori telat, tadi macet parah.",
+          "insight": 0,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Alesan duluan, minta maaf belakangan. Urutannya kebalik."
+        },
+        {
+          "id": "D",
+          "text": "Maaf banget ya, aku nggak nyangka selama itu. Besok-besok aku berangkat lebih awal. Sekarang aku traktir apa aja yang kamu mau.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Ngakuin dampaknya, janji yang konkret, terus nawarin sesuatu. Lengkap."
+        }
       ]
     },
     {
       "id": "15",
-      "category": "boundary_setting",
+      "category": "manipulation",
       "twist": false,
-      "situation": "Temen setim di organisasi ngomong santai pas rapat: 'Karena kamu paling jago Excel, kamu handle semua data analysis-nya ya. Aku fokus ke bagian lain.'",
+      "situation": "Sepupumu chat: 'Nggak apa-apa kok kalau kamu nggak sempet dateng ke ulang tahunku. Aku ngerti kamu sibuk. Lagian aku udah biasa kok yang dateng cuma sedikit.'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Pembagian tugas biasa, sesuai kemampuan", "isMostLikely": false },
-        { "id": "B", "text": "Cara halus buat mindahin kerjaan yang paling berat ke kamu", "isMostLikely": true },
-        { "id": "C", "text": "Dia beneran percaya kamu bisa", "isMostLikely": false },
-        { "id": "D", "text": "Dia sendiri belum tau mau ngerjain apa", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Beneran ngerti kamu sibuk",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Kecewa tapi maksa keliatan santai",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Sengaja bikin kamu nggak enak biar tetep dateng",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Nggak yakin sama nilainya sendiri buat orang lain",
+          "isMostLikely": true
+        }
       ],
-      "reasoning": "Liat dua bagiannya: punya kamu jelas dan gede ('semua data analysis'), punya dia kabur ('bagian lain'). Ditambah pujian di depan biar susah ditolak. Bisa jago bukan berarti harus sendirian.",
+      "reasoning": "Kalimat pertama ngasih izin, kalimat terakhir narik izinnya balik. 'Aku udah biasa yang dateng cuma sedikit' itu bagian yang sebenernya pengen didenger. Belum tentu dia sengaja — orang sering nggak sadar lagi ngelakuin ini.",
       "responses": [
-        { "id": "A", "text": "Oke siap.", "insight": -2, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Kamu nggak nyakitin siapa-siapa, tapi mulai sekarang kamu resmi jadi 'orang Excel' di semua proyek berikutnya." },
-        { "id": "B", "text": "Boleh aku pegang datanya, tapi bareng kamu buat baca hasilnya, biar nggak satu kepala doang. Btw 'bagian lain' kamu itu apa aja?", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Kamu terima sebagian, terus minta punya dia diperjelas. Ditanya santai gitu susah dihindarin." },
-        { "id": "C", "text": "Nggak bisa, aku juga banyak kerjaan.", "insight": 1, "empathy": -1, "socialDamage": 1, "isBest": false, "feedback": "Isinya sah, tapi di rapat nadanya bisa kebaca males." },
-        { "id": "D", "text": "Data-nya bisa aku pegang. Tapi yuk kita bagi semua kerjaan dulu di depan, biar jelas siapa ngapain.", "insight": 2, "empathy": 2, "socialDamage": 0, "isBest": false, "feedback": "Rapi dan adil. Kamu benerin sistemnya, bukan cuma bagian kamu." }
+        {
+          "id": "A",
+          "text": "Makasih ya pengertiannya, next time deh.",
+          "insight": -2,
+          "empathy": -2,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Kamu ambil izinnya, tapi kalimat terakhirnya kamu lewatin. Yang begini suka nempel lama."
+        },
+        {
+          "id": "B",
+          "text": "Aku usahain dateng ya. Jam berapa acaranya?",
+          "insight": 2,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Bagus dan aman. Cuma 'usahain' masih ngambang buat orang yang lagi ragu diri."
+        },
+        {
+          "id": "C",
+          "text": "Eh jangan gitu dong. Aku dateng kok. Kamu penting buat aku.",
+          "insight": 2,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Hangat dan langsung ke intinya. Kadang orang emang butuh diyakinin, bukan dianalisis."
+        },
+        {
+          "id": "D",
+          "text": "Kamu bilang nggak apa-apa, tapi kayaknya kamu masih pengen aku dateng deh. Bilang jujur aja, biar aku atur waktunya.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu nyebut yang nggak dia sebut, tapi tetep ngasih dia jalan keluar yang nggak malu-maluin."
+        }
       ]
     },
     {
       "id": "16",
       "category": "hidden_feelings",
       "twist": false,
-      "situation": "Sahabatmu baru putus setelah pacaran tiga tahun. Pas kamu tanya kabarnya, dia bilang: 'Santai kok, malah lega. Sekarang aku bisa fokus ke diri sendiri. Serius deh, aku nggak sedih.'",
-      "question": "Sebenernya gimana?",
+      "situation": "Kamu baru keterima magang bagus. Pas kamu cerita, temen deketmu bilang 'Wih keren! Emang kamu sih emang jago.' Terus dia jadi diem, dan nggak lama pamit pulang duluan.",
+      "question": "Kenapa ya?",
       "interpretations": [
-        { "id": "A", "text": "Beneran lega, mungkin hubungannya emang capek", "isMostLikely": false },
-        { "id": "B", "text": "Belum sanggup ngerasain sedihnya, jadi dibungkus jadi cerita 'aku berkembang'", "isMostLikely": true },
-        { "id": "C", "text": "Sedih banget tapi nggak mau ngerepotin siapa-siapa", "isMostLikely": true },
-        { "id": "D", "text": "Masih bingung sama perasaannya sendiri", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Seneng beneran, cuma emang ada urusan",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Ikut seneng, tapi diam-diam jadi kepikiran nasibnya sendiri",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Iri dan keganggu sama pencapaianmu",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Ada urusan pribadi yang nggak nyambung sama ini",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Kuncinya di 'serius deh, aku nggak sedih' — padahal nggak ada yang nuduh dia sedih. Orang yang beneran lega nggak perlu negesin.",
+      "reasoning": "Dua perasaan bisa jalan bareng. Dia beneran ikut seneng, dan kabarmu juga ngingetin dia sama posisinya sendiri. Itu bukan jahat, itu manusiawi banget.",
       "responses": [
-        { "id": "A", "text": "Bagus dong! Emang mending gitu.", "insight": -3, "empathy": -2, "socialDamage": 2, "isBest": false, "feedback": "Kamu ikut ngunci dia di cerita 'aku baik-baik aja'. Nanti pas ambruk, dia jadi nggak punya tempat." },
-        { "id": "B", "text": "Kalau nanti ternyata rasanya beda dari sekarang, kabarin aku ya. Aku nggak bakal ngejudge.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu nggak ngebantah dia, tapi kamu ninggalin pintu kebuka. Kalimat ini biasanya kepakai beberapa minggu kemudian." },
-        { "id": "C", "text": "Yakin? Tiga tahun loh, nggak mungkin nggak sedih.", "insight": 2, "empathy": 1, "socialDamage": 1, "isBest": false, "feedback": "Bacaannya bener, tapi kedengeran kayak ngebantah perasaannya." },
-        { "id": "D", "text": "Nawarin ketemu tanpa ngungkit putusnya: 'Weekend ini kosong nggak? Nonton yuk.'", "insight": 2, "empathy": 3, "socialDamage": 0, "isBest": false, "feedback": "Nemenin tanpa nyuruh cerita. Cocok banget buat orang yang nggak suka ngomongin perasaan." }
+        {
+          "id": "A",
+          "text": "Oke, hati-hati di jalan ya!",
+          "insight": -2,
+          "empathy": -1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Momennya lewat begitu aja."
+        },
+        {
+          "id": "B",
+          "text": "Eh kenapa? Kok mendadak?",
+          "insight": 1,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Nanya langsung bikin dia harus ngaku, dan itu yang paling nggak mau dia lakuin sekarang."
+        },
+        {
+          "id": "C",
+          "text": "Btw kamu lagi apply-apply juga kan? Gimana progresnya?",
+          "insight": 2,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu geser sorotannya ke dia tanpa bikin canggung. Halus."
+        },
+        {
+          "id": "D",
+          "text": "Eh, maaf ya kalau ceritaku barusan bikin kamu kepikiran sesuatu. Aku bukan mau pamer kok.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Berani. Kamu nyebut hal yang biasanya cuma dipendem dua-duanya. Kalau dia siap, obrolan kalian bisa jadi jauh lebih dalem."
+        }
       ]
     },
     {
       "id": "17",
-      "category": "sarcasm",
+      "category": "motive_detection",
       "twist": false,
-      "situation": "Di grup kelas kamu nanya soal deadline tugas metodologi. Sepi beberapa menit, terus satu temen bales: 'Wah sekarang deadline udah jadi info yang perlu ditanyain ya. Zaman berubah 🙃'",
+      "situation": "Senior organisasi yang lumayan terkenal tiba-tiba japri kamu: 'Eh, aku denger kamu jago desain ya? Aku ada deadline besok pagi nih. Kalau kamu bantu bikin 5 poster, nanti aku rekomendasiin kamu buat posisi bagus tahun depan. Gimana?'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Becanda umum, nggak nunjuk siapa-siapa", "isMostLikely": false },
-        { "id": "B", "text": "Nyindir kamu, karena harusnya kamu udah tau", "isMostLikely": true },
-        { "id": "C", "text": "Nyindir kelas yang emang berantakan, kamu cuma pemicunya", "isMostLikely": false },
-        { "id": "D", "text": "Nyindir dosen yang nggak jelas soal deadline", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Tawaran tulus, dia mau bantu karier kamu",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Emang lagi kepepet, dan mau tukeran jasa",
+          "isMostLikely": false
+        },
+        {
+          "id": "C",
+          "text": "Kerja nyata sekarang, ditukar janji yang ngambang nanti",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Iseng ngetes kamu bakal mau apa nggak",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Dia bales tepat di bawah pertanyaan kamu, dan emoji 🙃 itu emoji khas sindiran. Kalau targetnya dosen atau kelas, orang biasanya lebih hati-hati di grup rame.",
+      "reasoning": "Perhatiin timbangannya: yang kamu kasih jelas dan sekarang (5 poster, malam ini). Yang kamu terima kabur dan nanti ('posisi bagus tahun depan'). Tawaran yang tulus biasanya bayarannya sejelas kerjaannya.",
       "responses": [
-        { "id": "A", "text": "Kalau tau ya share dong, nggak usah sinis.", "insight": 2, "empathy": 0, "socialDamage": 2, "isBest": false, "feedback": "Bacaannya bener, tapi berantemnya di depan 40 orang." },
-        { "id": "B", "text": "Iya aku telat ngikutin, yang tau share dong.", "insight": 2, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Ngalah dikit, tujuan kamu tetep kecapai. Nggak semua sindiran perlu dilayanin." },
-        { "id": "C", "text": "DM pribadi: 'Eh komen kamu tadi nyindir aku ya? Kalau iya, maaf aku emang telat ngikutin grup. Tapi nggak usah di grup kali ya.'", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Diomongin berdua, nadanya tenang, dan kamu tetep nyampein batas kamu. Ini yang paling jarang orang lakuin." },
-        { "id": "D", "text": "Diemin aja, nanya ke orang lain.", "insight": 0, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Nggak salah. Tapi kalau orangnya sering gini, ini bakal keulang terus." }
+        {
+          "id": "A",
+          "text": "Wah boleh kak, aku bantu!",
+          "insight": -3,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Yang keluar nyata, yang masuk masih berupa kalimat. Ini pola yang sering banget kejadian."
+        },
+        {
+          "id": "B",
+          "text": "Boleh kak, tapi boleh lihat brief lengkapnya dulu? Sekalian penasaran, rekomendasinya nanti jalannya gimana ya?",
+          "insight": 3,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu nggak nolak, tapi kamu minta yang ngambang jadi jelas. Kalau dia tulus, dia bakal jawab detail. Kalau enggak, jawabannya bakal muter."
+        },
+        {
+          "id": "C",
+          "text": "Maaf kak, aku juga lagi ada deadline sendiri.",
+          "insight": 2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Aman dan sah. Kamu nggak wajib jelasin apa-apa."
+        },
+        {
+          "id": "D",
+          "text": "Kalau seurgent ini aku lebih nyaman kalau bayarannya jelas kak — fee, atau kalau emang tukeran rekomendasi, dibahas di grup pengurus aja biar semua tau.",
+          "insight": 3,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Paling aman jangka panjang, tapi nadanya bisa kebaca nantangin kalau seniornya tipe yang gampang tersinggung."
+        }
       ]
     },
     {
       "id": "18",
-      "category": "social_code",
+      "category": "motive_detection",
       "twist": false,
-      "situation": "Ketemu temen SMA yang udah tiga tahun nggak kontak di acara reuni. Dia ngeliatin kamu dari atas ke bawah, terus bilang: 'Wah kamu berubah banget ya. Aku sampe pangling.'",
+      "situation": "Baru tiga minggu di lingkungan baru — kampus baru, asrama, atau komunitas beasiswa. Satu orang langsung deket banget: chat tiap hari, ngajak makan dua kali seminggu, beliin kopi 'soalnya tadi keinget kamu', dan bilang 'kamu tuh temen terbaik aku di sini.'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Beneran kaget aja, netral", "isMostLikely": false },
-        { "id": "B", "text": "Muji, tapi malu-malu", "isMostLikely": false },
-        { "id": "C", "text": "Nyindir, tapi dihalusin", "isMostLikely": false },
-        { "id": "D", "text": "Sengaja dibikin ngambang, biar aman ke dua arah", "isMostLikely": true }
+        {
+          "id": "A",
+          "text": "Emang orangnya hangat dan gampang nyambung",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Dia kesepian dan butuh temen, kamu yang kebetulan ada",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Deketnya dipercepat — biasanya ujungnya nuntut atau kecewa besar",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Dia lagi ngukur kamu bisa dipakai buat apa",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "'Berubah' dan 'pangling' dua-duanya bisa dibaca positif atau negatif. Ditambah dia ngeliatin dulu. Kalau reaksi kamu senang, dia lanjut ke arah muji. Kalau kamu keliatan nggak enak, dia bisa bilang 'becanda kok'. Itu bukan kebetulan.",
+      "reasoning": "Tiga minggu buat sampai 'temen terbaik' itu kecepetan. B tulus tapi rapuh, C polanya bermasalah. Dua-duanya minta kamu hati-hati, bukan curiga.",
       "responses": [
-        { "id": "A", "text": "Iya kali ya. Kamu juga berubah kok!", "insight": 1, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Dipantulin balik. Aman, walaupun ikut ngambang." },
-        { "id": "B", "text": "Berubah gimana nih? Ke arah bagus apa jelek? Hahaha", "insight": 3, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Kamu paksa dia milih arah, sambil tetep ketawa. Berani, dan biasanya bikin orang jadi jujur." },
-        { "id": "C", "text": "Kamu juga keliatan lebih seger sekarang. Lagi sibuk apa emang?", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Kamu bales dengan pujian yang jelas — dan langsung pindahin obrolan ke hal yang beneran. Ambigu-nya nggak kepanjangan." },
-        { "id": "D", "text": "Emang kenapa? Ada yang aneh ya?", "insight": -1, "empathy": 0, "socialDamage": 1, "isBest": false, "feedback": "Kamu langsung nebak yang jelek. Padahal belum tentu." }
+        {
+          "id": "A",
+          "text": "Aduh, kamu juga temen terbaik aku!",
+          "insight": -2,
+          "empathy": 2,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu iyain harapan yang belum sempet kebentuk. Nanti pas kamu nggak bisa terus-terusan ada, dia bisa ngerasa dikhianatin."
+        },
+        {
+          "id": "B",
+          "text": "Terima kopinya, tapi mulai kasih jarak pelan-pelan — bales agak lama, sesekali nolak ajakan.",
+          "insight": 2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Aman, tapi dia bakal ngerasa ada yang berubah tanpa tau kenapa."
+        },
+        {
+          "id": "C",
+          "text": "Aku seneng banget kenal kamu. Tapi jujur aku tuh orangnya lama kalau mau deket sama orang. Bukan karena kamu, emang aku gitu.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Jujur, hangat, dan nggak nuduh. Kalau dia tulus, dia bakal ngerti. Kalau enggak, biasanya di sini dia mulai keliatan aslinya."
+        },
+        {
+          "id": "D",
+          "text": "Didiemin atau langsung diblokir.",
+          "insight": 1,
+          "empathy": -3,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Kejauhan. Bisa jadi dia beneran cuma kesepian."
+        }
       ]
     },
     {
       "id": "19",
-      "category": "manipulation",
+      "category": "boundary_setting",
       "twist": false,
-      "situation": "Temen deket pinjem uang 500 ribu, udah tiga bulan belum balik. Pas kamu tanya, dia bilang: 'Duh maaf ya, aku lagi susah banget beneran. Kamu kan lebih beruntung. Nanti aku balikin dua kali lipat deh, janji.'",
+      "situation": "Adik tingkat terus-terusan minta tolong revisi tugas. Awalnya kamu bantu, kasian dia masih baru. Tapi udah tiga minggu ini dia ngirim tugasnya tiap mau deadline, selalu jam 11 malem: 'Kak tolong yaaa aku nggak ngerti, kakak kan baik pasti mau bantuin :(((.'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Emang lagi susah, ya udah dimaklumi", "isMostLikely": false },
-        { "id": "B", "text": "Bikin kamu nggak enak lewat 'kamu kan lebih beruntung'", "isMostLikely": true },
-        { "id": "C", "text": "Ngulur waktu pakai iming-iming yang kegedean", "isMostLikely": true },
-        { "id": "D", "text": "Dia malu dan nggak tau harus ngomong apa", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Dia emang kesulitan, dan kamu jadi tempat dia bertahan",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Kamu udah jadi jalan pintas otomatis tiap dia kepepet",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia sengaja muji dulu biar kamu nggak enak nolak",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Dia nggak sadar udah minta sesering itu",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Orang yang beneran susah tapi niat bayar biasanya nawarin yang kecil dan nyata: 'aku cicil 100 ribu dulu ya'. Kalimat 'kamu kan lebih beruntung' mindahin rasa bersalah ke kamu, dan 'dua kali lipat' itu janji yang kegedean buat orang yang bayar 500 ribu aja belum bisa.",
+      "reasoning": "Bukan berarti dia jahat. Tapi polanya udah kebentuk, dan 'kakak kan baik' itu kunci yang dipakai buat buka pintu. Baik tanpa batas itu kebaca sebagai selalu bisa ditagih.",
       "responses": [
-        { "id": "A", "text": "Ya udah nggak apa-apa, nanti aja kalau udah ada.", "insight": -2, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Baik, tapi polanya jadi normal. Dan biasanya 'nanti' itu nggak pernah dateng." },
-        { "id": "B", "text": "Aku ngerti kamu lagi susah. Tapi soal siapa yang lebih beruntung itu beda urusan sama utang. Kita bikin cicilan yang muat sama kondisi kamu sekarang aja gimana?", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu tolak bagian yang bikin kamu nggak enak, tapi tetep bantu dia nyari jalan keluar. Ini adil buat dua-duanya." },
-        { "id": "C", "text": "Kamu udah bilang 'balikin dua kali lipat' dari tiga bulan lalu. Aku nggak butuh dua kali lipat, aku butuh yang aku pinjemin. Bulan ini bisa 100 ribu dulu?", "insight": 3, "empathy": 1, "socialDamage": 1, "isBest": false, "feedback": "Jelas dan konkret. Nadanya agak tajem, tapi setelah tiga bulan itu wajar." },
-        { "id": "D", "text": "Ya udahlah, ikhlasin aja.", "insight": -3, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Kamu ngalah ke diri sendiri. Dan polanya bakal keulang, nggak cuma soal uang." }
+        {
+          "id": "A",
+          "text": "Oke kirim aja, aku bantu. (lagi)",
+          "insight": -2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Baik banget, tapi polanya makin kekunci. Semester depan kamu bakal jadi cadangan deadline permanen."
+        },
+        {
+          "id": "B",
+          "text": "Maaf ya dek, malem ini aku nggak bisa. Coba tanya temen sekelas atau asisten dosen.",
+          "insight": 2,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Sah dan jelas. Cuma nggak nyelesaiin polanya, minggu depan bakal ada lagi."
+        },
+        {
+          "id": "C",
+          "text": "Aku notice beberapa minggu ini kamu selalu ngirim jam segini. Malem ini aku bantu, tapi habis ini aku nggak bisa jadi tempat kamu nyelametin deadline ya. Kamu perlu latihan ngatur sendiri. Gimana?",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu sebut polanya, kasih batas yang jelas, tapi tetep nggak ninggalin dia. Ini batasan yang sehat, bukan tega."
+        },
+        {
+          "id": "D",
+          "text": "Kok tiap kali selalu jam segini sih? Kakak juga sibuk kali.",
+          "insight": 1,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Isinya bener, nadanya bikin dia defensif. Sayang."
+        }
       ]
     },
     {
       "id": "20",
       "category": "hidden_feelings",
       "twist": false,
-      "situation": "Lagi video call sama temen yang jarang chat. Dia keliatan seneng, cerita banyak banget. Tiba-tiba di tengah-tengah dia bilang: 'Kadang aku ngerasa aku kebanyakan cerita deh. Kamu bosen nggak sih?'",
+      "situation": "Ada temen yang dulu deket banget, sering telfonan lama. Setahun terakhir jarang chat karena sama-sama sibuk dan beda kota. Suatu malem dia tiba-tiba ngirim voice note: 'Hai... lama ya nggak ngobrol. Random aja tadi keinget waktu kita dulu. Kamu apa kabar?'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Basa-basi doang, nggak beneran nanya", "isMostLikely": false },
-        { "id": "B", "text": "Nggak yakin dia beneran ditunggu-tunggu atau enggak", "isMostLikely": true },
-        { "id": "C", "text": "Ngecek — masih seneng nggak sih kamu ngobrol sama dia", "isMostLikely": true },
-        { "id": "D", "text": "Ngerasa nggak enak karena dia yang ngomong terus", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Iseng doang, nggak ada maksud apa-apa",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Lagi sepi, terus keinget orang yang bikin nyaman",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Sebenernya keingetnya bukan sekali. Ini versi amannya dari 'aku kangen'",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Lagi ada masalah dan kamu orang yang dia percaya",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Orang yang paling ceria sekalipun bisa diem-diem mikir dia kebanyakan. Apalagi dari orang yang udah lama nggak sering ngobrol — ada rasa takut jadi beban.",
+      "reasoning": "Dia milih voice note, bukan chat. Nyebut momen spesifik. Dan dia yang mulai duluan setelah setahun diem. Orang jarang ngelakuin tiga hal itu sekaligus buat sesuatu yang beneran random.",
       "responses": [
-        { "id": "A", "text": "Nggak kok, lanjut aja.", "insight": 0, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Jawabannya bener, tapi terlalu cepet. Dia butuh lebih dari satu kalimat buat percaya." },
-        { "id": "B", "text": "Nggak sama sekali. Jujur aku malah suka dengerin kamu cerita. Aku tuh jarang banget ngobrol sepanjang ini sama orang, jadi ini malah bikin seneng.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu nggak cuma bilang 'nggak bosen', kamu jelasin kenapa. Dan kamu balik bilang bahwa masalahnya bukan dia kebanyakan, tapi kamu yang jarang." },
-        { "id": "C", "text": "Wkwk nggak apa-apa, lanjut.", "insight": -1, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Kamu ketawain pertanyaan yang sebenernya dia tanya serius." },
-        { "id": "D", "text": "Kalau bosen aku bakal bilang kok. Sekarang aku lagi seneng dengerin, lanjut aja.", "insight": 2, "empathy": 2, "socialDamage": 0, "isBest": false, "feedback": "Tenang dan bikin dia aman. Solid." }
+        {
+          "id": "A",
+          "text": "Hai! Baik kok. Kamu gimana?",
+          "insight": -1,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Aman, tapi momen yang tadinya hangat balik jadi basa-basi."
+        },
+        {
+          "id": "B",
+          "text": "Ehh! Aku juga kadang keinget yang itu. Lagi ngapain sekarang?",
+          "insight": 2,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu bales hangatnya. Bagus."
+        },
+        {
+          "id": "C",
+          "text": "Aku baik, sibuk banget tapi baik. Jujur aku juga sering keinget momen-momen itu, cuma nggak tau mau mulai chat dari mana jadi diem aja. Makasih ya udah nyapa duluan.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu bilang bagian yang biasanya orang tahan. Dan kamu ngakuin dia yang lebih berani duluan."
+        },
+        {
+          "id": "D",
+          "text": "Kamu kenapa? Ada apa?",
+          "insight": 1,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Langsung nebak dia lagi ada masalah, padahal mungkin dia cuma pengen ngobrol."
+        }
       ]
     },
     {
       "id": "21",
-      "category": "hidden_feelings",
-      "twist": true,
-      "situation": "Kamu ngajak temenmu ikut nongkrong. Dia jawab: 'Hmm, aku di rumah aja deh. Lagi pengen sendiri aja hari ini. Kalian seru-seruan ya!' Dia bales cepet, dan tetep nanyain nanti mau ke mana.",
-      "question": "Sebenernya dia gimana?",
+      "category": "sarcasm",
+      "twist": false,
+      "situation": "Kamu upload story lagi nongkrong sama circle baru. Sahabat lamamu yang sekarang jarang ketemu komen di story: 'Wih banyak temen baru ya sekarang. Aku mah nonton aja dari sini 😊'",
+      "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Beneran lagi pengen sendiri. Nggak ada apa-apa.", "isMostLikely": true },
-        { "id": "B", "text": "Sebenernya pengen ikut tapi gengsi", "isMostLikely": false },
-        { "id": "C", "text": "Lagi ngambek sama salah satu yang ikut", "isMostLikely": false },
-        { "id": "D", "text": "Ngetes seberapa maksa kamu ngajak", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Seneng liat kamu punya circle baru",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Nyindir kamu udah lupa sama dia",
+          "isMostLikely": false
+        },
+        {
+          "id": "C",
+          "text": "Ngerasa ketinggalan, tapi dibungkus becanda",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Pengen kamu cepet-cepet bales",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Ini kebalikan dari kartu-kartu sebelumnya, dan penting: dia bales cepet, alasannya jelas, nadanya ringan, dan dia masih penasaran sama rencananya. Nggak ada tanda ditahan. Kadang 'pengen sendiri' artinya ya pengen sendiri.",
+      "reasoning": "'Aku mah' itu ngecilin diri sendiri. Emoji senyumnya justru nutupin, bukan nunjukin. Dan dia komen di tempat yang keliatan orang, bukan DM. Kalau beneran seneng, biasanya nanya 'seru banget, di mana tuh?'",
       "responses": [
-        { "id": "A", "text": "Yakin? Ayolah ikut, seru nih. Nanti nyesel loh.", "insight": -2, "empathy": -1, "socialDamage": 1, "isBest": false, "feedback": "Maksa karena mikir ada maksud tersembunyi. Buat orang yang beneran butuh sendiri, ini malah nambah capek." },
-        { "id": "B", "text": "Siap! Have a good rest ya. Nanti aku kirimin foto-fotonya biar kamu ikutan rame dari rumah.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu percaya sama omongannya, dan tetep ngajak dia ngerasa termasuk. Ini bentuk peka yang paling sering kelewat." },
-        { "id": "C", "text": "Kamu lagi ada masalah ya? Cerita dong.", "insight": -1, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Niatnya baik, tapi kamu bikin dia harus jelasin sesuatu yang nggak ada." },
-        { "id": "D", "text": "Oh oke.", "insight": 0, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Nggak salah, cuma dingin. Dia bisa mikir kamu tersinggung." }
+        {
+          "id": "A",
+          "text": "Wkwk lebay banget sih. Sini ikut kalau mau.",
+          "insight": 1,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Ajakannya bener, tapi 'lebay' bikin dia nyesel udah komen."
+        },
+        {
+          "id": "B",
+          "text": "Eh iya kita udah lama banget nggak ketemu. Weekend besok ngopi yuk, berdua aja.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu jawab yang dia rasain, bukan yang dia tulis. Dan ajakannya spesifik — 'berdua aja' itu yang bikin beda."
+        },
+        {
+          "id": "C",
+          "text": "Ih kamu mah suka lebay 😆",
+          "insight": -2,
+          "empathy": -2,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Dia lagi setengah serius, kamu perlakuin sebagai lelucon penuh."
+        },
+        {
+          "id": "D",
+          "text": "Bales lewat DM: 'Btw komen kamu tadi, kayaknya ada sesuatu deh. Kamu nggak apa-apa kan?'",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Mindahin ke ruang privat itu langkah yang bagus banget."
+        }
       ]
     },
     {
       "id": "22",
       "category": "social_code",
-      "twist": true,
-      "situation": "Kamu lagi chat panjang lebar sama temen. Tiba-tiba balesannya jadi pendek-pendek: 'iya', 'ok', 'hmm iya'. Padahal biasanya dia bales panjang dan pakai emoji.",
-      "question": "Ini apa?",
+      "twist": false,
+      "situation": "Kamu baru selesai presentasi tugas kelompok yang kamu sendiri tau persiapannya kurang. Dosennya cuma bilang: 'Menarik. Silakan duduk. Kelompok berikutnya.'",
+      "question": "Maksudnya apa?",
       "interpretations": [
-        { "id": "A", "text": "Dia lagi kesel sama kamu", "isMostLikely": false },
-        { "id": "B", "text": "Dia lagi nggak bisa pegang HP dengan bebas — nyetir, di kelas, lagi sama orang", "isMostLikely": true },
-        { "id": "C", "text": "Dia mulai bosen sama obrolannya", "isMostLikely": false },
-        { "id": "D", "text": "Dia ngasih kode biar kamu berhenti chat", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Dosennya puas, ya udah lanjut",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Kurang puas — 'menarik' itu versi sopan dari 'ya gitu deh'",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Netral, nggak ada masalah",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Kesel tapi nggak mau bikin ribut di kelas",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Balesan pendek itu paling sering soal situasi, bukan perasaan. Yang bikin orang salah paham: kita ngukur chat pakai standar ngobrol langsung. Kalau dia beneran kesel, biasanya ada tanda lain — nge-read lama, atau nadanya berubah, bukan cuma pendek.",
+      "reasoning": "'Menarik' yang berdiri sendiri, tanpa pertanyaan lanjutan, terus langsung pindah kelompok. Dosen yang beneran tertarik biasanya nanya. Yang nggak tertarik biasanya milih kata yang aman.",
       "responses": [
-        { "id": "A", "text": "Kamu kenapa? Aku salah ngomong ya?", "insight": -2, "empathy": 0, "socialDamage": 1, "isBest": false, "feedback": "Kamu bikin masalah dari yang belum tentu ada. Dan dia jadi harus nenangin kamu sambil nyetir." },
-        { "id": "B", "text": "Oke, santai. Nanti lanjut lagi kalau kamu udah senggang ya.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu kasih dia ruang tanpa drama. Kalau ternyata dia emang lagi sibuk, dia bakal lega banget baca ini." },
-        { "id": "C", "text": "Ya udah deh kalau lagi males ngobrol.", "insight": -2, "empathy": -2, "socialDamage": 2, "isBest": false, "feedback": "Kamu ngambek duluan atas sesuatu yang mungkin nggak pernah terjadi." },
-        { "id": "D", "text": "Terus lanjut chat panjang kayak biasa.", "insight": 0, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Nggak nyakitin, tapi kamu nggak baca situasinya." }
+        {
+          "id": "A",
+          "text": "Ya udahlah, yang penting kelar.",
+          "insight": -2,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Nggak nyakitin siapa-siapa, tapi minggu depan kejadian yang sama bakal terulang."
+        },
+        {
+          "id": "B",
+          "text": "Habis kelas, kirim pesan ke dosennya: 'Pak/Bu, boleh minta masukan soal presentasi kami tadi? Biar kami tau yang perlu diperbaiki.'",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Nanya langsung ke sumbernya. Sekalian ngasih tau dosen bahwa kamu sadar dan mau benerin."
+        },
+        {
+          "id": "C",
+          "text": "Ke temen sekelompok: 'Kayaknya kurang nih. Yuk kita bedah lagi buat next.'",
+          "insight": 2,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Bagus — kamu ngajak tim, bukan nyalahin tim."
+        },
+        {
+          "id": "D",
+          "text": "Nyalahin salah satu anggota di grup chat.",
+          "insight": 1,
+          "empathy": -3,
+          "socialDamage": 3,
+          "isBest": false,
+          "feedback": "Kamu mungkin bener soal siapa yang kurang, tapi caranya ngerusak timnya sekaligus nama kamu."
+        }
       ]
     },
     {
       "id": "23",
-      "category": "manipulation",
+      "category": "hidden_feelings",
       "twist": false,
-      "situation": "Habis kamu presentasi dan hasilnya bagus, satu temen nyeletuk sambil ketawa: 'Nggak nyangka sih. Buat ukuran orang yang jarang belajar, kamu lumayan juga ya.'",
+      "situation": "Ibu chat malem-malem: 'Nggak apa-apa kok kamu jarang pulang, ibu ngerti kamu sibuk. Malem ini ibu masak yang biasa aja, nggak ada yang spesial.'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Pujian tulus, cuma bahasanya asal", "isMostLikely": false },
-        { "id": "B", "text": "Pujian yang dikasih sambil dikecilin — biar kamu seneng sekaligus ragu", "isMostLikely": true },
-        { "id": "C", "text": "Becanda antar temen, nggak usah dipikirin", "isMostLikely": false },
-        { "id": "D", "text": "Dia beneran kaget dan spontan", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Ibu emang cuma ngabarin",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Ibu kangen tapi nggak mau ngerepotin",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Ibu lagi kecewa tapi tetep pengen keliatan ngerti",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Ibu lagi capek dan cuma pengen ngobrol",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Bentuknya: pujian + syarat yang ngerendahin. 'Lumayan, buat ukuran ___'. Efeknya kamu nggak bisa marah karena dipuji, tapi juga nggak bisa seneng utuh. Kalau ini sering, biasanya bukan kebetulan.",
+      "reasoning": "Kalimat 'nggak ada yang spesial' itu kuncinya. Artinya biasanya ada yang spesial — pas kamu pulang. Ini bukan manipulasi, ini cara ngomong sayang yang muter.",
       "responses": [
-        { "id": "A", "text": "Hehe iya nih, kebetulan aja.", "insight": -2, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Kamu ikut ngecilin diri sendiri. Kalau ini keulang, lama-lama kamu percaya." },
-        { "id": "B", "text": "Makasih! Tapi bagian 'jarang belajar'-nya kurang tepat sih. Aku nyiapin ini dua minggu.", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Kamu terima pujiannya, terus benerin bagian yang salah — tanpa marah. Ini cara paling tenang buat nutup pintu." },
-        { "id": "C", "text": "Maksudnya apa tuh? Nyindir ya?", "insight": 2, "empathy": 0, "socialDamage": 2, "isBest": false, "feedback": "Bacaannya bener, tapi jadi tegang. Dia bakal bilang 'becanda doang' dan kamu yang keliatan baperan." },
-        { "id": "D", "text": "Diem aja, senyum.", "insight": 1, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Nggak apa-apa sesekali. Tapi diem terus dibaca sebagai boleh diulang." }
+        {
+          "id": "A",
+          "text": "Iya bu, minggu depan aku pulang deh insyaallah.",
+          "insight": 1,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Bener, tapi 'insyaallah minggu depan' udah kayak lagu lama buat kebanyakan ibu."
+        },
+        {
+          "id": "B",
+          "text": "Bu, aku juga kangen banget masakan ibu. Weekend ini aku pulang ya, kita masak bareng kayak dulu.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu bales kangennya dengan kangen, terus kasih tanggal. Yang bikin tenang itu tanggalnya."
+        },
+        {
+          "id": "C",
+          "text": "Ya udah bu, nanti kalau aku nggak sibuk aku pulang.",
+          "insight": -2,
+          "empathy": -2,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Ibu ngasih pintu, kamu tutup pelan-pelan. Ini yang paling kerasa."
+        },
+        {
+          "id": "D",
+          "text": "Video call sekarang: 'Bu, aku telfon dulu ya, sambil ibu masak.'",
+          "insight": 2,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Hadir sekarang juga. Kadang itu lebih berarti daripada janji nanti."
+        }
       ]
     },
     {
       "id": "24",
       "category": "motive_detection",
       "twist": false,
-      "situation": "Ada anggota baru di komunitas yang tiap ngobrol selalu nanya hal spesifik: siapa yang kamu kenal di kepengurusan, siapa yang bisa bantu masuk program X, kontak dosen yang enak buat rekomendasi. Tapi kalau kamu nanya balik soal dia, jawabannya pendek dan langsung ganti topik.",
+      "situation": "Temen di grup penerima beasiswa yang biasanya cuek banget tiba-tiba japri: 'Eh boleh minta motivation letter kamu nggak? Aku mau apply beasiswa yang mirip. Kamu kan udah pengalaman.'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Dia emang orangnya penasaran dan aktif nyari info", "isMostLikely": false },
-        { "id": "B", "text": "Obrolannya searah — dia ngumpulin akses, bukan lagi kenalan", "isMostLikely": true },
-        { "id": "C", "text": "Dia pemalu, jadi lebih nyaman nanya daripada cerita", "isMostLikely": false },
-        { "id": "D", "text": "Dia lagi kepepet dan butuh bantuan cepet", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Tulus mau belajar, dan kamu emang track record-nya bagus",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Cari jalan pintas, mau nyontek daripada nulis sendiri",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Ngetes dulu — kalau dikasih, nanti bakal minta yang lain lagi",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Emang lagi bingung mulai dari mana",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Bedanya orang yang pengen kenal sama orang yang pengen akses: yang pertama pertukarannya bolak-balik. Kalau tiap obrolan cuma ngalir satu arah — dari kamu ke dia — itu bukan pertemanan yang lagi tumbuh, itu riset.",
+      "reasoning": "Yang bikin ini beda dari permintaan biasa: dia minta hasil jadi, bukan cara bikinnya. Orang yang tulus mau belajar biasanya nanya 'gimana cara kamu nyusunnya?', bukan 'boleh minta punyamu?'.",
       "responses": [
-        { "id": "A", "text": "Kasih semua kontak dan info yang dia minta.", "insight": -2, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Yang kamu kasih bukan cuma nomor — itu nama baik kamu di mata orang-orang itu." },
-        { "id": "B", "text": "Kasih info yang umum aja, tahan yang butuh nama kamu di belakangnya. Sambil terus nanya balik soal dia.", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Kamu tetep ramah dan nggak nuduh, tapi kamu ngerem di titik yang tepat. Dan pertanyaan balik kamu bakal kasih tau banyak — orang yang tulus bakal jawab." },
-        { "id": "C", "text": "Kayaknya kamu butuh banyak akses ya. Sebenernya kamu lagi ngejar apa sih?", "insight": 3, "empathy": 1, "socialDamage": 1, "isBest": false, "feedback": "Langsung ke jantungnya. Efektif, tapi bisa kerasa nginterogasi." },
-        { "id": "D", "text": "Mulai ngehindar dan males bales.", "insight": 1, "empathy": -1, "socialDamage": 1, "isBest": false, "feedback": "Bisa jadi dia beneran cuma canggung. Kamu belum sempet tau." }
+        {
+          "id": "A",
+          "text": "Nih, sekalian esai-esai aku yang lain juga ya.",
+          "insight": -2,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Murah hati banget, tapi kamu ngasih hal yang paling pribadi dari perjuanganmu sendiri."
+        },
+        {
+          "id": "B",
+          "text": "Aku kurang nyaman ngasih yang aku pakai buat apply. Tapi aku bisa share bahan-bahan yang dulu ngebantu aku, atau kita ngobrol 30 menit soal cara nyusunnya. Mau?",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu tetep nolong, tapi yang kamu kasih ilmunya, bukan karyanya. Kalau dia tulus, dia ambil tawaran ini."
+        },
+        {
+          "id": "C",
+          "text": "Maaf, aku nggak share motivation letter aku ke siapa-siapa.",
+          "insight": 2,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Tegas dan sah. Kamu nggak wajib ngasih alasan."
+        },
+        {
+          "id": "D",
+          "text": "Nggak dibales sama sekali.",
+          "insight": 0,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Ngambang. Dia nggak dapet jawaban, kamu dapet nama 'yang suka nge-read doang'."
+        }
       ]
     },
     {
       "id": "25",
       "category": "boundary_setting",
       "twist": false,
-      "situation": "Grup kepanitiaan rame terus sampai lewat tengah malam. Kamu udah tidur. Paginya ada chat pribadi: 'Semalem kamu nggak bales, padahal keliatan online. Kita nunggu keputusan kamu loh sampe jam 1.'",
+      "situation": "Temen setim di organisasi ngomong santai pas rapat: 'Karena kamu paling jago Excel, kamu handle semua data analysis-nya ya. Aku fokus ke bagian lain.'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Wajar, emang lagi kepepet deadline bareng-bareng", "isMostLikely": false },
-        { "id": "B", "text": "Dia lagi bikin 'selalu bisa dihubungi' jadi standar yang kamu harus penuhi", "isMostLikely": true },
-        { "id": "C", "text": "Dia kesel karena ngerasa ditinggal sendirian", "isMostLikely": false },
-        { "id": "D", "text": "Dia cuma ngasih info, kamu aja yang kepikiran", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Pembagian tugas biasa, sesuai kemampuan",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Cara halus buat mindahin kerjaan yang paling berat ke kamu",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia beneran percaya kamu bisa",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia sendiri belum tau mau ngerjain apa",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Perhatiin bagian 'padahal keliatan online'. Itu bukan info, itu bukti yang lagi disodorin. Yang lagi dibangun bukan solusi buat semalem, tapi aturan baru buat semua malam berikutnya.",
+      "reasoning": "Liat dua bagiannya: punya kamu jelas dan gede ('semua data analysis'), punya dia kabur ('bagian lain'). Ditambah pujian di depan biar susah ditolak. Bisa jago bukan berarti harus sendirian.",
       "responses": [
-        { "id": "A", "text": "Maaf banget ya! Nanti aku pasti bales walaupun malem.", "insight": -2, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Kamu baru aja setuju sama aturan yang belum pernah kamu sepakatin." },
-        { "id": "B", "text": "Aku emang tidur jam segitu. Kalau ada yang harus diputusin cepet, telfon aja — tapi kalau bisa nunggu pagi, aku bales pagi ya.", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Kamu nggak minta maaf buat hal yang bukan salah kamu, dan kamu kasih jalan buat yang beneran darurat. Rapi." },
-        { "id": "C", "text": "Ya kan aku juga manusia, masa jam 1 harus stand by.", "insight": 2, "empathy": -1, "socialDamage": 1, "isBest": false, "feedback": "Isinya bener, tapi nadanya bikin dia defensif dan intinya ilang." },
-        { "id": "D", "text": "Iya maaf, aku ketiduran.", "insight": 0, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "'Ketiduran' bikin tidur kamu kedengeran kayak kecelakaan. Padahal itu hak kamu." }
+        {
+          "id": "A",
+          "text": "Oke siap.",
+          "insight": -2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu nggak nyakitin siapa-siapa, tapi mulai sekarang kamu resmi jadi 'orang Excel' di semua proyek berikutnya."
+        },
+        {
+          "id": "B",
+          "text": "Boleh aku pegang datanya, tapi bareng kamu buat baca hasilnya, biar nggak satu kepala doang. Btw 'bagian lain' kamu itu apa aja?",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu terima sebagian, terus minta punya dia diperjelas. Ditanya santai gitu susah dihindarin."
+        },
+        {
+          "id": "C",
+          "text": "Nggak bisa, aku juga banyak kerjaan.",
+          "insight": 1,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Isinya sah, tapi di rapat nadanya bisa kebaca males."
+        },
+        {
+          "id": "D",
+          "text": "Data-nya bisa aku pegang. Tapi yuk kita bagi semua kerjaan dulu di depan, biar jelas siapa ngapain.",
+          "insight": 2,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Rapi dan adil. Kamu benerin sistemnya, bukan cuma bagian kamu."
+        }
       ]
     },
     {
       "id": "26",
-      "category": "sarcasm",
+      "category": "hidden_feelings",
       "twist": false,
-      "situation": "Kamu batalin janji ketemu buat kedua kalinya bulan ini. Temenmu bales: 'Iya iya nggak apa-apa. Orang sibuk mah gitu ya, wajar. 👍'",
-      "question": "Ini apa?",
+      "situation": "Sahabatmu baru putus setelah pacaran tiga tahun. Pas kamu tanya kabarnya, dia bilang: 'Santai kok, malah lega. Sekarang aku bisa fokus ke diri sendiri. Serius deh, aku nggak sedih.'",
+      "question": "Sebenernya gimana?",
       "interpretations": [
-        { "id": "A", "text": "Dia beneran maklum", "isMostLikely": false },
-        { "id": "B", "text": "Kecewa, dan jempolnya itu bukan tanda setuju", "isMostLikely": true },
-        { "id": "C", "text": "Dia marah besar dan lagi nahan", "isMostLikely": false },
-        { "id": "D", "text": "Dia lagi buru-buru, jadi balesnya singkat", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Beneran lega, mungkin hubungannya emang capek",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Belum sanggup ngerasain sedihnya, jadi dibungkus jadi cerita 'aku berkembang'",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Sedih banget tapi nggak mau ngerepotin siapa-siapa",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Masih bingung sama perasaannya sendiri",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "'Iya iya' yang diulang, ditambah 'orang sibuk mah gitu ya' yang ngejarak, ditambah emoji jempol yang dingin. Tiga tanda dalam satu balesan pendek. Kalau beneran maklum, biasanya nawarin jadwal lain.",
+      "reasoning": "Kuncinya di 'serius deh, aku nggak sedih' — padahal nggak ada yang nuduh dia sedih. Orang yang beneran lega nggak perlu negesin.",
       "responses": [
-        { "id": "A", "text": "Makasih ya udah ngertiin! 🙏", "insight": -2, "empathy": -1, "socialDamage": 1, "isBest": false, "feedback": "Kamu ambil kata-katanya dan lewatin nadanya. Ini yang bikin orang pelan-pelan berhenti ngajak." },
-        { "id": "B", "text": "Aku tau ini kedua kalinya, dan itu nyebelin. Maaf ya. Sabtu depan aku yang atur semuanya, dan aku nggak bakal batalin.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu ngitung sendiri sebelum dia yang ngitung, terus kasih tanggal dan janji yang jelas. Ini yang bikin kepercayaan balik." },
-        { "id": "C", "text": "Kok gitu sih, kamu marah ya?", "insight": 2, "empathy": 0, "socialDamage": 1, "isBest": false, "feedback": "Bacaannya bener, tapi kamu balik nodong dia buat ngaku. Padahal kamu yang batalin." },
-        { "id": "D", "text": "Iya maaf, lagi banyak banget nih 😭", "insight": 0, "empathy": 0, "socialDamage": 1, "isBest": false, "feedback": "Alesan lagi. Dan 'lagi banyak banget' persis yang barusan dia sindir." }
+        {
+          "id": "A",
+          "text": "Bagus dong! Emang mending gitu.",
+          "insight": -3,
+          "empathy": -2,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Kamu ikut ngunci dia di cerita 'aku baik-baik aja'. Nanti pas ambruk, dia jadi nggak punya tempat."
+        },
+        {
+          "id": "B",
+          "text": "Kalau nanti ternyata rasanya beda dari sekarang, kabarin aku ya. Aku nggak bakal ngejudge.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu nggak ngebantah dia, tapi kamu ninggalin pintu kebuka. Kalimat ini biasanya kepakai beberapa minggu kemudian."
+        },
+        {
+          "id": "C",
+          "text": "Yakin? Tiga tahun loh, nggak mungkin nggak sedih.",
+          "insight": 2,
+          "empathy": 1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Bacaannya bener, tapi kedengeran kayak ngebantah perasaannya."
+        },
+        {
+          "id": "D",
+          "text": "Nawarin ketemu tanpa ngungkit putusnya: 'Weekend ini kosong nggak? Nonton yuk.'",
+          "insight": 2,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Nemenin tanpa nyuruh cerita. Cocok banget buat orang yang nggak suka ngomongin perasaan."
+        }
       ]
     },
     {
       "id": "27",
-      "category": "motive_detection",
-      "twist": true,
-      "situation": "Senior yang nggak terlalu kamu kenal nawarin: 'Aku lihat kamu lagi ngerjain riset soal X ya? Aku punya bahan-bahan lumayan lengkap soal itu, mau aku kirimin? Nggak usah dibales apa-apa, dulu aku juga dibantu orang.'",
+      "category": "sarcasm",
+      "twist": false,
+      "situation": "Di grup kelas kamu nanya soal deadline tugas metodologi. Sepi beberapa menit, terus satu temen bales: 'Wah sekarang deadline udah jadi info yang perlu ditanyain ya. Zaman berubah 🙃'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Tulus. Emang ada orang yang begini.", "isMostLikely": true },
-        { "id": "B", "text": "Nanti pasti ada tagihannya", "isMostLikely": false },
-        { "id": "C", "text": "Dia lagi cari muka biar diinget", "isMostLikely": false },
-        { "id": "D", "text": "Dia mau numpang nama di risetmu", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Becanda umum, nggak nunjuk siapa-siapa",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Nyindir kamu, karena harusnya kamu udah tau",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Nyindir kelas yang emang berantakan, kamu cuma pemicunya",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Nyindir dosen yang nggak jelas soal deadline",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Bandingin sama kartu senior yang minta 5 poster. Di situ yang kamu kasih nyata dan yang kamu terima ngambang. Di sini kebalikannya — yang dia kasih nyata dan langsung, dan dia bilang di depan bahwa nggak ada yang perlu dibales. Nggak semua kebaikan itu jebakan. Kalau kamu curiga ke semua orang, kamu bakal kehilangan orang-orang terbaik.",
+      "reasoning": "Dia bales tepat di bawah pertanyaan kamu, dan emoji 🙃 itu emoji khas sindiran. Kalau targetnya dosen atau kelas, orang biasanya lebih hati-hati di grup rame.",
       "responses": [
-        { "id": "A", "text": "Hmm, kenapa tiba-tiba baik banget? Ada maunya ya?", "insight": -3, "empathy": -2, "socialDamage": 2, "isBest": false, "feedback": "Curiganya kejauhan. Orang yang tulus dibegini biasanya nggak nawarin lagi ke siapa pun." },
-        { "id": "B", "text": "Wah mau banget kak, makasih! Nanti kalau aku bisa bantu apa-apa bilang aja ya.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Terima dengan senang, dan bales dengan nawarin balik — tanpa bikin dia ngerasa kamu ngutang. Ini cara nerima kebaikan yang bener." },
-        { "id": "C", "text": "Boleh kak. Tapi aku bayar aja ya biar nggak enak.", "insight": 0, "empathy": 1, "socialDamage": 1, "isBest": false, "feedback": "Kamu ubah kebaikan jadi transaksi. Buat sebagian orang, ini nolak halus." },
-        { "id": "D", "text": "Makasih kak, tapi aku coba sendiri dulu deh.", "insight": 0, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Sopan, tapi kamu nolak sesuatu yang beneran bakal ngebantu — cuma karena nggak biasa dibaikin." }
+        {
+          "id": "A",
+          "text": "Kalau tau ya share dong, nggak usah sinis.",
+          "insight": 2,
+          "empathy": 0,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Bacaannya bener, tapi berantemnya di depan 40 orang."
+        },
+        {
+          "id": "B",
+          "text": "Iya aku telat ngikutin, yang tau share dong.",
+          "insight": 2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Ngalah dikit, tujuan kamu tetep kecapai. Nggak semua sindiran perlu dilayanin."
+        },
+        {
+          "id": "C",
+          "text": "DM pribadi: 'Eh komen kamu tadi nyindir aku ya? Kalau iya, maaf aku emang telat ngikutin grup. Tapi nggak usah di grup kali ya.'",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Diomongin berdua, nadanya tenang, dan kamu tetep nyampein batas kamu. Ini yang paling jarang orang lakuin."
+        },
+        {
+          "id": "D",
+          "text": "Diemin aja, nanya ke orang lain.",
+          "insight": 0,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Nggak salah. Tapi kalau orangnya sering gini, ini bakal keulang terus."
+        }
       ]
     },
     {
       "id": "28",
-      "category": "hidden_feelings",
+      "category": "social_code",
       "twist": false,
-      "situation": "Ada satu temen yang selalu jadi tempat curhat semua orang, termasuk kamu. Suatu hari kamu tanya 'kamu sendiri gimana?' Dia ketawa terus bilang: 'Aku mah nggak ada apa-apa. Udah, cerita aja terus, aku suka kok dengerin.'",
+      "situation": "Ketemu temen SMA yang udah tiga tahun nggak kontak di acara reuni. Dia ngeliatin kamu dari atas ke bawah, terus bilang: 'Wah kamu berubah banget ya. Aku sampe pangling.'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Emang orangnya lebih suka dengerin daripada cerita", "isMostLikely": false },
-        { "id": "B", "text": "Dia udah kebiasa jadi yang nampung, sampai nggak tau caranya minta ditampung", "isMostLikely": true },
-        { "id": "C", "text": "Dia lagi ada masalah tapi takut jadi beban", "isMostLikely": true },
-        { "id": "D", "text": "Dia beneran lagi nggak ada apa-apa", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Beneran kaget aja, netral",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Muji, tapi malu-malu",
+          "isMostLikely": false
+        },
+        {
+          "id": "C",
+          "text": "Nyindir, tapi dihalusin",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Sengaja dibikin ngambang, biar aman ke dua arah",
+          "isMostLikely": true
+        }
       ],
-      "reasoning": "'Aku mah nggak ada apa-apa' plus buru-buru balikin sorotan ke kamu. Orang yang perannya selalu jadi pendengar sering paling jarang ditanya balik — dan makin lama makin canggung buat jawab jujur.",
+      "reasoning": "'Berubah' dan 'pangling' dua-duanya bisa dibaca positif atau negatif. Ditambah dia ngeliatin dulu. Kalau reaksi kamu senang, dia lanjut ke arah muji. Kalau kamu keliatan nggak enak, dia bisa bilang 'becanda kok'. Itu bukan kebetulan.",
       "responses": [
-        { "id": "A", "text": "Oke deh, jadi gini nih ceritanya...", "insight": -2, "empathy": -1, "socialDamage": 1, "isBest": false, "feedback": "Kamu balik ke posisi semula, dan dia balik jadi kursi." },
-        { "id": "B", "text": "Aku serius nanya loh. Kamu selalu dengerin semua orang, tapi kayaknya jarang ada yang nanya balik ke kamu. Aku nanya sekarang.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu sebut perannya, terus kamu tolak buat main peran itu. Buat orang tipe ini, kalimat kayak gini bisa nempel lama." },
-        { "id": "C", "text": "Yaudah kalau nggak ada apa-apa. Nanti cerita ya kalau ada.", "insight": 0, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Sopan, tapi buat dia 'nanti' itu nggak pernah dateng. Dia butuh ditanya, bukan dikasih izin." },
-        { "id": "D", "text": "Ganti topik ke hal ringan, tapi habis itu ajak dia jalan berdua.", "insight": 2, "empathy": 3, "socialDamage": 0, "isBest": false, "feedback": "Nggak maksa sekarang, tapi kamu bikin ruangnya. Buat orang yang canggung ditanya langsung, ini kadang lebih ngena." }
+        {
+          "id": "A",
+          "text": "Iya kali ya. Kamu juga berubah kok!",
+          "insight": 1,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Dipantulin balik. Aman, walaupun ikut ngambang."
+        },
+        {
+          "id": "B",
+          "text": "Berubah gimana nih? Ke arah bagus apa jelek? Hahaha",
+          "insight": 3,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu paksa dia milih arah, sambil tetep ketawa. Berani, dan biasanya bikin orang jadi jujur."
+        },
+        {
+          "id": "C",
+          "text": "Kamu juga keliatan lebih seger sekarang. Lagi sibuk apa emang?",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu bales dengan pujian yang jelas — dan langsung pindahin obrolan ke hal yang beneran. Ambigu-nya nggak kepanjangan."
+        },
+        {
+          "id": "D",
+          "text": "Emang kenapa? Ada yang aneh ya?",
+          "insight": -1,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu langsung nebak yang jelek. Padahal belum tentu."
+        }
       ]
     },
     {
       "id": "29",
       "category": "manipulation",
       "twist": false,
-      "situation": "Kamu bilang nggak bisa bantu acara minggu ini karena ada ujian. Panitianya bales di grup: 'Ya udah nggak apa-apa, biar aku aja yang handle semuanya sendiri. Aku kan emang udah biasa ngerjain sendirian.'",
+      "situation": "Temen deket pinjem uang 500 ribu, udah tiga bulan belum balik. Pas kamu tanya, dia bilang: 'Duh maaf ya, aku lagi susah banget beneran. Kamu kan lebih beruntung. Nanti aku balikin dua kali lipat deh, janji.'",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Dia emang capek dan lagi ngeluh doang", "isMostLikely": false },
-        { "id": "B", "text": "Dia bikin kamu jadi yang salah, di depan orang banyak", "isMostLikely": true },
-        { "id": "C", "text": "Dia lagi minta tolong tapi gengsi ngomong langsung", "isMostLikely": true },
-        { "id": "D", "text": "Dia beneran nggak masalah ngerjain sendiri", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Emang lagi susah, ya udah dimaklumi",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Bikin kamu nggak enak lewat 'kamu kan lebih beruntung'",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Ngulur waktu pakai iming-iming yang kegedean",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Dia malu dan nggak tau harus ngomong apa",
+          "isMostLikely": false
+        }
       ],
-      "reasoning": "Tiga bagiannya: ngasih izin, terus ngangkat diri jadi yang berkorban, dan semuanya di grup — bukan japri. Kalau tujuannya cuma ngabarin, ini cukup dibilang berdua. Ditaruh di grup karena yang dicari penontonnya.",
+      "reasoning": "Orang yang beneran susah tapi niat bayar biasanya nawarin yang kecil dan nyata: 'aku cicil 100 ribu dulu ya'. Kalimat 'kamu kan lebih beruntung' mindahin rasa bersalah ke kamu, dan 'dua kali lipat' itu janji yang kegedean buat orang yang bayar 500 ribu aja belum bisa.",
       "responses": [
-        { "id": "A", "text": "Ya udah deh, aku usahain bantu walaupun lagi ujian.", "insight": -2, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Berhasil. Dan lain kali cara yang sama bakal dipakai lagi ke kamu." },
-        { "id": "B", "text": "Aku emang nggak bisa minggu ini. Tapi biar nggak numpuk ke kamu sendirian, gimana kalau kita bagi tugasnya ke yang lain? Aku bisa bantu nyusun pembagiannya sekarang.", "insight": 3, "empathy": 3, "socialDamage": 0, "isBest": true, "feedback": "Kamu nggak ketarik rasa bersalahnya, tapi kamu juga nggak ninggalin masalahnya. Kamu benerin sistemnya." },
-        { "id": "C", "text": "Nggak usah gitu dong ngomongnya, kesannya aku yang jahat.", "insight": 3, "empathy": 0, "socialDamage": 2, "isBest": false, "feedback": "Bacaannya paling tajem, tapi diomongin di grup jadi ribut. Kalau mau ngomong ini, japri." },
-        { "id": "D", "text": "Nggak dibales, biarin aja.", "insight": 1, "empathy": 0, "socialDamage": 1, "isBest": false, "feedback": "Diem di grup sering kebaca sebagai ngaku." }
+        {
+          "id": "A",
+          "text": "Ya udah nggak apa-apa, nanti aja kalau udah ada.",
+          "insight": -2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Baik, tapi polanya jadi normal. Dan biasanya 'nanti' itu nggak pernah dateng."
+        },
+        {
+          "id": "B",
+          "text": "Aku ngerti kamu lagi susah. Tapi soal siapa yang lebih beruntung itu beda urusan sama utang. Kita bikin cicilan yang muat sama kondisi kamu sekarang aja gimana?",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu tolak bagian yang bikin kamu nggak enak, tapi tetep bantu dia nyari jalan keluar. Ini adil buat dua-duanya."
+        },
+        {
+          "id": "C",
+          "text": "Kamu udah bilang 'balikin dua kali lipat' dari tiga bulan lalu. Aku nggak butuh dua kali lipat, aku butuh yang aku pinjemin. Bulan ini bisa 100 ribu dulu?",
+          "insight": 3,
+          "empathy": 1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Jelas dan konkret. Nadanya agak tajem, tapi setelah tiga bulan itu wajar."
+        },
+        {
+          "id": "D",
+          "text": "Ya udahlah, ikhlasin aja.",
+          "insight": -3,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu ngalah ke diri sendiri. Dan polanya bakal keulang, nggak cuma soal uang."
+        }
       ]
     },
     {
       "id": "30",
+      "category": "hidden_feelings",
+      "twist": false,
+      "situation": "Lagi video call sama temen yang jarang chat. Dia keliatan seneng, cerita banyak banget. Tiba-tiba di tengah-tengah dia bilang: 'Kadang aku ngerasa aku kebanyakan cerita deh. Kamu bosen nggak sih?'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Basa-basi doang, nggak beneran nanya",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Nggak yakin dia beneran ditunggu-tunggu atau enggak",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Ngecek — masih seneng nggak sih kamu ngobrol sama dia",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Ngerasa nggak enak karena dia yang ngomong terus",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Orang yang paling ceria sekalipun bisa diem-diem mikir dia kebanyakan. Apalagi dari orang yang udah lama nggak sering ngobrol — ada rasa takut jadi beban.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Nggak kok, lanjut aja.",
+          "insight": 0,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Jawabannya bener, tapi terlalu cepet. Dia butuh lebih dari satu kalimat buat percaya."
+        },
+        {
+          "id": "B",
+          "text": "Nggak sama sekali. Jujur aku malah suka dengerin kamu cerita. Aku tuh jarang banget ngobrol sepanjang ini sama orang, jadi ini malah bikin seneng.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu nggak cuma bilang 'nggak bosen', kamu jelasin kenapa. Dan kamu balik bilang bahwa masalahnya bukan dia kebanyakan, tapi kamu yang jarang."
+        },
+        {
+          "id": "C",
+          "text": "Wkwk nggak apa-apa, lanjut.",
+          "insight": -1,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu ketawain pertanyaan yang sebenernya dia tanya serius."
+        },
+        {
+          "id": "D",
+          "text": "Kalau bosen aku bakal bilang kok. Sekarang aku lagi seneng dengerin, lanjut aja.",
+          "insight": 2,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Tenang dan bikin dia aman. Solid."
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "category": "hidden_feelings",
+      "twist": true,
+      "situation": "Kamu ngajak temenmu ikut nongkrong. Dia jawab: 'Hmm, aku di rumah aja deh. Lagi pengen sendiri aja hari ini. Kalian seru-seruan ya!' Dia bales cepet, dan tetep nanyain nanti mau ke mana.",
+      "question": "Sebenernya dia gimana?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Beneran lagi pengen sendiri. Nggak ada apa-apa.",
+          "isMostLikely": true
+        },
+        {
+          "id": "B",
+          "text": "Sebenernya pengen ikut tapi gengsi",
+          "isMostLikely": false
+        },
+        {
+          "id": "C",
+          "text": "Lagi ngambek sama salah satu yang ikut",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Ngetes seberapa maksa kamu ngajak",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Ini kebalikan dari kartu-kartu sebelumnya, dan penting: dia bales cepet, alasannya jelas, nadanya ringan, dan dia masih penasaran sama rencananya. Nggak ada tanda ditahan. Kadang 'pengen sendiri' artinya ya pengen sendiri.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Yakin? Ayolah ikut, seru nih. Nanti nyesel loh.",
+          "insight": -2,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Maksa karena mikir ada maksud tersembunyi. Buat orang yang beneran butuh sendiri, ini malah nambah capek."
+        },
+        {
+          "id": "B",
+          "text": "Siap! Have a good rest ya. Nanti aku kirimin foto-fotonya biar kamu ikutan rame dari rumah.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu percaya sama omongannya, dan tetep ngajak dia ngerasa termasuk. Ini bentuk peka yang paling sering kelewat."
+        },
+        {
+          "id": "C",
+          "text": "Kamu lagi ada masalah ya? Cerita dong.",
+          "insight": -1,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Niatnya baik, tapi kamu bikin dia harus jelasin sesuatu yang nggak ada."
+        },
+        {
+          "id": "D",
+          "text": "Oh oke.",
+          "insight": 0,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Nggak salah, cuma dingin. Dia bisa mikir kamu tersinggung."
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "category": "social_code",
+      "twist": true,
+      "situation": "Kamu lagi chat panjang lebar sama temen. Tiba-tiba balesannya jadi pendek-pendek: 'iya', 'ok', 'hmm iya'. Padahal biasanya dia bales panjang dan pakai emoji.",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Dia lagi kesel sama kamu",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Dia lagi nggak bisa pegang HP dengan bebas — nyetir, di kelas, lagi sama orang",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia mulai bosen sama obrolannya",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia ngasih kode biar kamu berhenti chat",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Balesan pendek itu paling sering soal situasi, bukan perasaan. Yang bikin orang salah paham: kita ngukur chat pakai standar ngobrol langsung. Kalau dia beneran kesel, biasanya ada tanda lain — nge-read lama, atau nadanya berubah, bukan cuma pendek.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Kamu kenapa? Aku salah ngomong ya?",
+          "insight": -2,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu bikin masalah dari yang belum tentu ada. Dan dia jadi harus nenangin kamu sambil nyetir."
+        },
+        {
+          "id": "B",
+          "text": "Oke, santai. Nanti lanjut lagi kalau kamu udah senggang ya.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu kasih dia ruang tanpa drama. Kalau ternyata dia emang lagi sibuk, dia bakal lega banget baca ini."
+        },
+        {
+          "id": "C",
+          "text": "Ya udah deh kalau lagi males ngobrol.",
+          "insight": -2,
+          "empathy": -2,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Kamu ngambek duluan atas sesuatu yang mungkin nggak pernah terjadi."
+        },
+        {
+          "id": "D",
+          "text": "Terus lanjut chat panjang kayak biasa.",
+          "insight": 0,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Nggak nyakitin, tapi kamu nggak baca situasinya."
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "category": "manipulation",
+      "twist": false,
+      "situation": "Habis kamu presentasi dan hasilnya bagus, satu temen nyeletuk sambil ketawa: 'Nggak nyangka sih. Buat ukuran orang yang jarang belajar, kamu lumayan juga ya.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Pujian tulus, cuma bahasanya asal",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Pujian yang dikasih sambil dikecilin — biar kamu seneng sekaligus ragu",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Becanda antar temen, nggak usah dipikirin",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia beneran kaget dan spontan",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Bentuknya: pujian + syarat yang ngerendahin. 'Lumayan, buat ukuran ___'. Efeknya kamu nggak bisa marah karena dipuji, tapi juga nggak bisa seneng utuh. Kalau ini sering, biasanya bukan kebetulan.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Hehe iya nih, kebetulan aja.",
+          "insight": -2,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu ikut ngecilin diri sendiri. Kalau ini keulang, lama-lama kamu percaya."
+        },
+        {
+          "id": "B",
+          "text": "Makasih! Tapi bagian 'jarang belajar'-nya kurang tepat sih. Aku nyiapin ini dua minggu.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu terima pujiannya, terus benerin bagian yang salah — tanpa marah. Ini cara paling tenang buat nutup pintu."
+        },
+        {
+          "id": "C",
+          "text": "Maksudnya apa tuh? Nyindir ya?",
+          "insight": 2,
+          "empathy": 0,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Bacaannya bener, tapi jadi tegang. Dia bakal bilang 'becanda doang' dan kamu yang keliatan baperan."
+        },
+        {
+          "id": "D",
+          "text": "Diem aja, senyum.",
+          "insight": 1,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Nggak apa-apa sesekali. Tapi diem terus dibaca sebagai boleh diulang."
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "category": "motive_detection",
+      "twist": false,
+      "situation": "Ada anggota baru di komunitas yang tiap ngobrol selalu nanya hal spesifik: siapa yang kamu kenal di kepengurusan, siapa yang bisa bantu masuk program X, kontak dosen yang enak buat rekomendasi. Tapi kalau kamu nanya balik soal dia, jawabannya pendek dan langsung ganti topik.",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Dia emang orangnya penasaran dan aktif nyari info",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Obrolannya searah — dia ngumpulin akses, bukan lagi kenalan",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia pemalu, jadi lebih nyaman nanya daripada cerita",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia lagi kepepet dan butuh bantuan cepet",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Bedanya orang yang pengen kenal sama orang yang pengen akses: yang pertama pertukarannya bolak-balik. Kalau tiap obrolan cuma ngalir satu arah — dari kamu ke dia — itu bukan pertemanan yang lagi tumbuh, itu riset.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Kasih semua kontak dan info yang dia minta.",
+          "insight": -2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Yang kamu kasih bukan cuma nomor — itu nama baik kamu di mata orang-orang itu."
+        },
+        {
+          "id": "B",
+          "text": "Kasih info yang umum aja, tahan yang butuh nama kamu di belakangnya. Sambil terus nanya balik soal dia.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu tetep ramah dan nggak nuduh, tapi kamu ngerem di titik yang tepat. Dan pertanyaan balik kamu bakal kasih tau banyak — orang yang tulus bakal jawab."
+        },
+        {
+          "id": "C",
+          "text": "Kayaknya kamu butuh banyak akses ya. Sebenernya kamu lagi ngejar apa sih?",
+          "insight": 3,
+          "empathy": 1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Langsung ke jantungnya. Efektif, tapi bisa kerasa nginterogasi."
+        },
+        {
+          "id": "D",
+          "text": "Mulai ngehindar dan males bales.",
+          "insight": 1,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Bisa jadi dia beneran cuma canggung. Kamu belum sempet tau."
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "category": "boundary_setting",
+      "twist": false,
+      "situation": "Grup kepanitiaan rame terus sampai lewat tengah malam. Kamu udah tidur. Paginya ada chat pribadi: 'Semalem kamu nggak bales, padahal keliatan online. Kita nunggu keputusan kamu loh sampe jam 1.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Wajar, emang lagi kepepet deadline bareng-bareng",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Dia lagi bikin 'selalu bisa dihubungi' jadi standar yang kamu harus penuhi",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia kesel karena ngerasa ditinggal sendirian",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia cuma ngasih info, kamu aja yang kepikiran",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Perhatiin bagian 'padahal keliatan online'. Itu bukan info, itu bukti yang lagi disodorin. Yang lagi dibangun bukan solusi buat semalem, tapi aturan baru buat semua malam berikutnya.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Maaf banget ya! Nanti aku pasti bales walaupun malem.",
+          "insight": -2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu baru aja setuju sama aturan yang belum pernah kamu sepakatin."
+        },
+        {
+          "id": "B",
+          "text": "Aku emang tidur jam segitu. Kalau ada yang harus diputusin cepet, telfon aja — tapi kalau bisa nunggu pagi, aku bales pagi ya.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu nggak minta maaf buat hal yang bukan salah kamu, dan kamu kasih jalan buat yang beneran darurat. Rapi."
+        },
+        {
+          "id": "C",
+          "text": "Ya kan aku juga manusia, masa jam 1 harus stand by.",
+          "insight": 2,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Isinya bener, tapi nadanya bikin dia defensif dan intinya ilang."
+        },
+        {
+          "id": "D",
+          "text": "Iya maaf, aku ketiduran.",
+          "insight": 0,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "'Ketiduran' bikin tidur kamu kedengeran kayak kecelakaan. Padahal itu hak kamu."
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "category": "sarcasm",
+      "twist": false,
+      "situation": "Kamu batalin janji ketemu buat kedua kalinya bulan ini. Temenmu bales: 'Iya iya nggak apa-apa. Orang sibuk mah gitu ya, wajar. 👍'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Dia beneran maklum",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Kecewa, dan jempolnya itu bukan tanda setuju",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia marah besar dan lagi nahan",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia lagi buru-buru, jadi balesnya singkat",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "'Iya iya' yang diulang, ditambah 'orang sibuk mah gitu ya' yang ngejarak, ditambah emoji jempol yang dingin. Tiga tanda dalam satu balesan pendek. Kalau beneran maklum, biasanya nawarin jadwal lain.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Makasih ya udah ngertiin! 🙏",
+          "insight": -2,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu ambil kata-katanya dan lewatin nadanya. Ini yang bikin orang pelan-pelan berhenti ngajak."
+        },
+        {
+          "id": "B",
+          "text": "Aku tau ini kedua kalinya, dan itu nyebelin. Maaf ya. Sabtu depan aku yang atur semuanya, dan aku nggak bakal batalin.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu ngitung sendiri sebelum dia yang ngitung, terus kasih tanggal dan janji yang jelas. Ini yang bikin kepercayaan balik."
+        },
+        {
+          "id": "C",
+          "text": "Kok gitu sih, kamu marah ya?",
+          "insight": 2,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Bacaannya bener, tapi kamu balik nodong dia buat ngaku. Padahal kamu yang batalin."
+        },
+        {
+          "id": "D",
+          "text": "Iya maaf, lagi banyak banget nih 😭",
+          "insight": 0,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Alesan lagi. Dan 'lagi banyak banget' persis yang barusan dia sindir."
+        }
+      ]
+    },
+    {
+      "id": "37",
+      "category": "motive_detection",
+      "twist": true,
+      "situation": "Senior yang nggak terlalu kamu kenal nawarin: 'Aku lihat kamu lagi ngerjain riset soal X ya? Aku punya bahan-bahan lumayan lengkap soal itu, mau aku kirimin? Nggak usah dibales apa-apa, dulu aku juga dibantu orang.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Tulus. Emang ada orang yang begini.",
+          "isMostLikely": true
+        },
+        {
+          "id": "B",
+          "text": "Nanti pasti ada tagihannya",
+          "isMostLikely": false
+        },
+        {
+          "id": "C",
+          "text": "Dia lagi cari muka biar diinget",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia mau numpang nama di risetmu",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Bandingin sama kartu senior yang minta 5 poster. Di situ yang kamu kasih nyata dan yang kamu terima ngambang. Di sini kebalikannya — yang dia kasih nyata dan langsung, dan dia bilang di depan bahwa nggak ada yang perlu dibales. Nggak semua kebaikan itu jebakan. Kalau kamu curiga ke semua orang, kamu bakal kehilangan orang-orang terbaik.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Hmm, kenapa tiba-tiba baik banget? Ada maunya ya?",
+          "insight": -3,
+          "empathy": -2,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Curiganya kejauhan. Orang yang tulus dibegini biasanya nggak nawarin lagi ke siapa pun."
+        },
+        {
+          "id": "B",
+          "text": "Wah mau banget kak, makasih! Nanti kalau aku bisa bantu apa-apa bilang aja ya.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Terima dengan senang, dan bales dengan nawarin balik — tanpa bikin dia ngerasa kamu ngutang. Ini cara nerima kebaikan yang bener."
+        },
+        {
+          "id": "C",
+          "text": "Boleh kak. Tapi aku bayar aja ya biar nggak enak.",
+          "insight": 0,
+          "empathy": 1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu ubah kebaikan jadi transaksi. Buat sebagian orang, ini nolak halus."
+        },
+        {
+          "id": "D",
+          "text": "Makasih kak, tapi aku coba sendiri dulu deh.",
+          "insight": 0,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Sopan, tapi kamu nolak sesuatu yang beneran bakal ngebantu — cuma karena nggak biasa dibaikin."
+        }
+      ]
+    },
+    {
+      "id": "38",
+      "category": "hidden_feelings",
+      "twist": false,
+      "situation": "Ada satu temen yang selalu jadi tempat curhat semua orang, termasuk kamu. Suatu hari kamu tanya 'kamu sendiri gimana?' Dia ketawa terus bilang: 'Aku mah nggak ada apa-apa. Udah, cerita aja terus, aku suka kok dengerin.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Emang orangnya lebih suka dengerin daripada cerita",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Dia udah kebiasa jadi yang nampung, sampai nggak tau caranya minta ditampung",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia lagi ada masalah tapi takut jadi beban",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Dia beneran lagi nggak ada apa-apa",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "'Aku mah nggak ada apa-apa' plus buru-buru balikin sorotan ke kamu. Orang yang perannya selalu jadi pendengar sering paling jarang ditanya balik — dan makin lama makin canggung buat jawab jujur.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Oke deh, jadi gini nih ceritanya...",
+          "insight": -2,
+          "empathy": -1,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu balik ke posisi semula, dan dia balik jadi kursi."
+        },
+        {
+          "id": "B",
+          "text": "Aku serius nanya loh. Kamu selalu dengerin semua orang, tapi kayaknya jarang ada yang nanya balik ke kamu. Aku nanya sekarang.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu sebut perannya, terus kamu tolak buat main peran itu. Buat orang tipe ini, kalimat kayak gini bisa nempel lama."
+        },
+        {
+          "id": "C",
+          "text": "Yaudah kalau nggak ada apa-apa. Nanti cerita ya kalau ada.",
+          "insight": 0,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Sopan, tapi buat dia 'nanti' itu nggak pernah dateng. Dia butuh ditanya, bukan dikasih izin."
+        },
+        {
+          "id": "D",
+          "text": "Ganti topik ke hal ringan, tapi habis itu ajak dia jalan berdua.",
+          "insight": 2,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Nggak maksa sekarang, tapi kamu bikin ruangnya. Buat orang yang canggung ditanya langsung, ini kadang lebih ngena."
+        }
+      ]
+    },
+    {
+      "id": "39",
+      "category": "manipulation",
+      "twist": false,
+      "situation": "Kamu bilang nggak bisa bantu acara minggu ini karena ada ujian. Panitianya bales di grup: 'Ya udah nggak apa-apa, biar aku aja yang handle semuanya sendiri. Aku kan emang udah biasa ngerjain sendirian.'",
+      "question": "Ini apa?",
+      "interpretations": [
+        {
+          "id": "A",
+          "text": "Dia emang capek dan lagi ngeluh doang",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Dia bikin kamu jadi yang salah, di depan orang banyak",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia lagi minta tolong tapi gengsi ngomong langsung",
+          "isMostLikely": true
+        },
+        {
+          "id": "D",
+          "text": "Dia beneran nggak masalah ngerjain sendiri",
+          "isMostLikely": false
+        }
+      ],
+      "reasoning": "Tiga bagiannya: ngasih izin, terus ngangkat diri jadi yang berkorban, dan semuanya di grup — bukan japri. Kalau tujuannya cuma ngabarin, ini cukup dibilang berdua. Ditaruh di grup karena yang dicari penontonnya.",
+      "responses": [
+        {
+          "id": "A",
+          "text": "Ya udah deh, aku usahain bantu walaupun lagi ujian.",
+          "insight": -2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Berhasil. Dan lain kali cara yang sama bakal dipakai lagi ke kamu."
+        },
+        {
+          "id": "B",
+          "text": "Aku emang nggak bisa minggu ini. Tapi biar nggak numpuk ke kamu sendirian, gimana kalau kita bagi tugasnya ke yang lain? Aku bisa bantu nyusun pembagiannya sekarang.",
+          "insight": 3,
+          "empathy": 3,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu nggak ketarik rasa bersalahnya, tapi kamu juga nggak ninggalin masalahnya. Kamu benerin sistemnya."
+        },
+        {
+          "id": "C",
+          "text": "Nggak usah gitu dong ngomongnya, kesannya aku yang jahat.",
+          "insight": 3,
+          "empathy": 0,
+          "socialDamage": 2,
+          "isBest": false,
+          "feedback": "Bacaannya paling tajem, tapi diomongin di grup jadi ribut. Kalau mau ngomong ini, japri."
+        },
+        {
+          "id": "D",
+          "text": "Nggak dibales, biarin aja.",
+          "insight": 1,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Diem di grup sering kebaca sebagai ngaku."
+        }
+      ]
+    },
+    {
+      "id": "40",
       "category": "social_code",
       "twist": false,
       "situation": "Habis ngobrol seru sama kenalan baru, dia bilang sambil senyum: 'Nanti kita ketemuan lagi ya! Kapan-kapan main ke tempatku!' Tapi dia nggak nyebut kapan, dan nggak nanya kontakmu.",
       "question": "Ini apa?",
       "interpretations": [
-        { "id": "A", "text": "Ajakan beneran, tinggal nunggu dia ngabarin", "isMostLikely": false },
-        { "id": "B", "text": "Basa-basi penutup yang sopan, bukan rencana", "isMostLikely": true },
-        { "id": "C", "text": "Dia mau ngajak tapi malu minta kontak duluan", "isMostLikely": false },
-        { "id": "D", "text": "Dia lagi nguji kamu bakal follow up apa nggak", "isMostLikely": false }
+        {
+          "id": "A",
+          "text": "Ajakan beneran, tinggal nunggu dia ngabarin",
+          "isMostLikely": false
+        },
+        {
+          "id": "B",
+          "text": "Basa-basi penutup yang sopan, bukan rencana",
+          "isMostLikely": true
+        },
+        {
+          "id": "C",
+          "text": "Dia mau ngajak tapi malu minta kontak duluan",
+          "isMostLikely": false
+        },
+        {
+          "id": "D",
+          "text": "Dia lagi nguji kamu bakal follow up apa nggak",
+          "isMostLikely": false
+        }
       ],
       "reasoning": "Bedanya ajakan sama basa-basi ada di tiga hal: waktu, tempat, dan cara ngehubungin. Ajakan beneran biasanya punya minimal satu. Kalau nggak ada satu pun, itu biasanya cara sopan buat nutup obrolan — dan itu nggak apa-apa, bukan berarti dia bohong.",
       "responses": [
-        { "id": "A", "text": "Nunggu dia ngabarin duluan.", "insight": -1, "empathy": 0, "socialDamage": 0, "isBest": false, "feedback": "Kemungkinan besar nggak akan ada kabar. Bukan karena dia jahat, tapi karena emang nggak ada rencananya." },
-        { "id": "B", "text": "Boleh! Sini aku minta kontakmu, biar nanti gampang ngaturnya.", "insight": 3, "empathy": 2, "socialDamage": 0, "isBest": true, "feedback": "Kamu ubah basa-basi jadi sesuatu yang nyata, dengan santai. Kalau dia emang mau, ini jadi jalan. Kalau enggak, ya udah, nggak ada yang canggung." },
-        { "id": "C", "text": "Hmm boleh deh, kapan-kapan ya.", "insight": 2, "empathy": 1, "socialDamage": 0, "isBest": false, "feedback": "Kamu baca dengan bener dan bales di level yang sama. Aman, cuma peluangnya lewat." },
-        { "id": "D", "text": "Serius nih? Kapan? Besok bisa?", "insight": 1, "empathy": 0, "socialDamage": 1, "isBest": false, "feedback": "Kamu anggap serius sesuatu yang belum tentu serius. Bisa bikin dia kaget dan malah mundur." }
+        {
+          "id": "A",
+          "text": "Nunggu dia ngabarin duluan.",
+          "insight": -1,
+          "empathy": 0,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kemungkinan besar nggak akan ada kabar. Bukan karena dia jahat, tapi karena emang nggak ada rencananya."
+        },
+        {
+          "id": "B",
+          "text": "Boleh! Sini aku minta kontakmu, biar nanti gampang ngaturnya.",
+          "insight": 3,
+          "empathy": 2,
+          "socialDamage": 0,
+          "isBest": true,
+          "feedback": "Kamu ubah basa-basi jadi sesuatu yang nyata, dengan santai. Kalau dia emang mau, ini jadi jalan. Kalau enggak, ya udah, nggak ada yang canggung."
+        },
+        {
+          "id": "C",
+          "text": "Hmm boleh deh, kapan-kapan ya.",
+          "insight": 2,
+          "empathy": 1,
+          "socialDamage": 0,
+          "isBest": false,
+          "feedback": "Kamu baca dengan bener dan bales di level yang sama. Aman, cuma peluangnya lewat."
+        },
+        {
+          "id": "D",
+          "text": "Serius nih? Kapan? Besok bisa?",
+          "insight": 1,
+          "empathy": 0,
+          "socialDamage": 1,
+          "isBest": false,
+          "feedback": "Kamu anggap serius sesuatu yang belum tentu serius. Bisa bikin dia kaget dan malah mundur."
+        }
       ]
     }
   ]
