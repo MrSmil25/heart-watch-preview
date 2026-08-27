@@ -19,6 +19,7 @@ import {
   saveState,
   type GameState,
 } from "@/lib/gameState";
+import { matchPersona } from "@/lib/personas";
 import type { Totals } from "@/lib/scoring";
 
 const TITLE = "Baca Aku — Latihan Baca Maksud Tersembunyi Orang";
