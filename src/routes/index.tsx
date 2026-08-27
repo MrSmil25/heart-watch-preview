@@ -56,6 +56,7 @@ function Index() {
   const [showReset, setShowReset] = useState(false);
   const [showRename, setShowRename] = useState(false);
   const [showHiddenMessage, setShowHiddenMessage] = useState(false);
+  const [messageReplay, setMessageReplay] = useState(false);
 
   useEffect(() => {
     const loaded = loadState();
