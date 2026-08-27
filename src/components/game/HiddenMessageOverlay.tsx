@@ -7,7 +7,7 @@ type Props = {
 
 export function HiddenMessageOverlay({ nickname, onContinue }: Props) {
   return (
-    <div className="animate-fade-in fixed inset-0 z-50 flex flex-col items-center justify-center bg-background/95 px-6 text-center">
+    <div className="animate-fade-in fixed inset-0 z-50 flex flex-col items-center justify-center bg-background px-6 text-center">
       <Bunny pose="happy" className="size-40" hop />
       <p className="animate-rise mt-6 text-2xl text-foreground">
         Yey, keren banget {nickname || "kamu"} 🐰
