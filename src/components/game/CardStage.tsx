@@ -113,7 +113,7 @@ export function CardStage({
 
       {chosenInterpretation ? (
         <div className="animate-rise space-y-4">
-          <h3 className="text-lg text-foreground">Terus kamu jawab apa?</h3>
+          <h3 className="text-lg text-foreground">Pilih respons kamu:</h3>
           <div className="space-y-2.5">
             {shuffledResponses.map((option, i) => {
               const revealed = pickedResponse !== null;
