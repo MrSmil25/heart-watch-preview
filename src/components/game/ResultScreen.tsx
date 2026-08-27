@@ -34,6 +34,10 @@ export function ResultScreen({ state, totalCards, onRestart }: Props) {
         <span className="mt-4 inline-flex rounded-full bg-lavender/70 px-3 py-1 text-xs font-semibold text-lavender-foreground">
           {played} kartu selesai
         </span>
+        <p className="mt-3 text-[0.92rem] leading-relaxed text-muted-foreground">
+          {state.nickname || "Kamu"}, kamu udah selesai {totalCards} kartu. Ini gambaran lengkap
+          tentang kamu ✨
+        </p>
         <h1 className="mt-4 text-3xl text-rose">{persona.name}</h1>
         <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground">
           {personaText(persona, true, state.nickname)}
@@ -67,6 +71,10 @@ export function ResultScreen({ state, totalCards, onRestart }: Props) {
           <span className="font-semibold text-foreground">{categoryLabel(weakest)}</span>
         </p>
       ) : null}
+
+      <p className="text-center text-xs text-muted-foreground">
+        Mau main ulang? Kartu bakal diacak lagi biar tetep menantang.
+      </p>
 
       <button
         type="button"
