@@ -8,10 +8,13 @@ type Props = {
 
 export function ReasoningPanel({ correct, reasoning, twist }: Props) {
   return (
-    <div className="animate-rise space-y-3 rounded-2xl bg-cream px-4 py-4">
+    <div
+      className="animate-rise space-y-3 rounded-2xl bg-cream px-5 py-4 soft-shadow"
+      style={{ animationDelay: "200ms" }}
+    >
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-sm font-semibold text-foreground">
-          {correct ? "Pas banget ✿" : "Belum pas, tapi wajar kok"}
+          {correct ? "Pas banget." : "Hmm, coba lihat lagi ya."}
         </span>
         {twist ? <TwistBadge /> : null}
       </div>
