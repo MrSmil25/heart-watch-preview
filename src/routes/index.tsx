@@ -297,13 +297,25 @@ function Index() {
           played={played}
           isLast={played >= cards.length - 1}
           nickname={state.nickname}
+          hasMessage={state.milestones.hiddenMessageSeen}
+          onOpenMessage={() => {
+            setMessageReplay(true);
+            setShowHiddenMessage(true);
+          }}
           onNext={handleNext}
           onStop={() => setScreen("progress")}
         />
         {showHiddenMessage ? (
           <HiddenMessageOverlay
             nickname={state.nickname}
-            onContinue={handleHiddenMessageContinue}
+            onContinue={
+              messageReplay
+                ? () => {
+                    setShowHiddenMessage(false);
+                    setMessageReplay(false);
+                  }
+                : handleHiddenMessageContinue
+            }
           />
         ) : null}
       </main>
