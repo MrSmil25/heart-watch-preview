@@ -19,6 +19,7 @@ import {
   saveState,
   type GameState,
 } from "@/lib/gameState";
+import { matchPersona } from "@/lib/personas";
 import type { Totals } from "@/lib/scoring";
 
 const TITLE = "Baca Aku — Latihan Baca Maksud Tersembunyi Orang";
@@ -55,6 +56,7 @@ function Index() {
   const [showReset, setShowReset] = useState(false);
   const [showRename, setShowRename] = useState(false);
   const [showHiddenMessage, setShowHiddenMessage] = useState(false);
+  const [messageReplay, setMessageReplay] = useState(false);
 
   useEffect(() => {
     const loaded = loadState();
@@ -114,8 +116,15 @@ function Index() {
         milestones: { ...nextState.milestones, fullPersonaUnlocked: true },
       };
     }
+    if (newPlayed >= 20) {
+      nextState = {
+        ...nextState,
+        currentPersonaId: matchPersona(nextState.totalScore, newPlayed).id,
+      };
+    }
 
     setState(nextState);
+
 
     if (!wasPlayed && newPlayed === 15 && !nextState.milestones.hiddenMessageSeen) {
       setShowHiddenMessage(true);
@@ -289,13 +298,25 @@ function Index() {
           played={played}
           isLast={played >= cards.length - 1}
           nickname={state.nickname}
+          hasMessage={state.milestones.hiddenMessageSeen}
+          onOpenMessage={() => {
+            setMessageReplay(true);
+            setShowHiddenMessage(true);
+          }}
           onNext={handleNext}
           onStop={() => setScreen("progress")}
         />
         {showHiddenMessage ? (
           <HiddenMessageOverlay
             nickname={state.nickname}
-            onContinue={handleHiddenMessageContinue}
+            onContinue={
+              messageReplay
+                ? () => {
+                    setShowHiddenMessage(false);
+                    setMessageReplay(false);
+                  }
+                : handleHiddenMessageContinue
+            }
           />
         ) : null}
       </main>

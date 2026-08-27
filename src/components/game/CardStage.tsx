@@ -17,6 +17,8 @@ type Props = {
   played: number;
   isLast: boolean;
   nickname: string;
+  hasMessage?: boolean;
+  onOpenMessage?: () => void;
   onNext: (delta: Totals, interpretationChoice: string, responseChoice: string) => void;
   onStop: () => void;
 };
@@ -28,6 +30,8 @@ export function CardStage({
   played,
   isLast,
   nickname,
+  hasMessage = false,
+  onOpenMessage,
   onNext,
   onStop,
 }: Props) {
@@ -45,10 +49,24 @@ export function CardStage({
     <div className="surface-card space-y-6 px-5 py-6">
       <div className="flex items-center justify-between gap-3">
         <div className="flex-1">
-          <ProgressBar current={index + 1} total={total} category={categoryLabel(card.category)} />
+          <ProgressBar
+            current={Math.min(played + 1, total)}
+            total={total}
+            category={categoryLabel(card.category)}
+          />
         </div>
         <div className="flex items-center gap-2">
           <ProgressCircle played={played} total={total} size={40} />
+          {hasMessage && onOpenMessage ? (
+            <button
+              type="button"
+              aria-label="Buka pesan tersembunyi"
+              onClick={onOpenMessage}
+              className="flex size-8 items-center justify-center rounded-full bg-peach text-peach-foreground"
+            >
+              ✉
+            </button>
+          ) : null}
           <button
             type="button"
             aria-label="Berhenti"
@@ -61,6 +79,7 @@ export function CardStage({
       </div>
 
       <SituationBlock situation={card.situation} question={card.question} />
+
 
       <div className="space-y-2.5">
         {shuffledInterpretations.map((option, i) => {
@@ -94,7 +113,7 @@ export function CardStage({
 
       {chosenInterpretation ? (
         <div className="animate-rise space-y-4">
-          <h3 className="text-lg text-foreground">Terus kamu jawab apa?</h3>
+          <h3 className="text-lg text-foreground">Pilih respons kamu:</h3>
           <div className="space-y-2.5">
             {shuffledResponses.map((option, i) => {
               const revealed = pickedResponse !== null;
