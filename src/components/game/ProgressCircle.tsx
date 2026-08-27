@@ -5,8 +5,8 @@ type Props = {
 };
 
 export function ProgressCircle({ played, total, size = 120 }: Props) {
-  const steps = Math.min(Math.floor(played / 10), 3);
-  const fraction = steps / 3;
+  const steps = Math.min(Math.floor(played / 10), 4);
+  const fraction = steps / 4;
   const stroke = size >= 90 ? 10 : 6;
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
